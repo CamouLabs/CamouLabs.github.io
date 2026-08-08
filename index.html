@@ -406,6 +406,39 @@
     letter-spacing: -0.01em;
   }
   .feature-actions { margin-top: 1.45rem; }
+  .btn-appstore {
+    background: #0b1220;
+    color: #f7fafd;
+    gap: 0.55rem;
+    padding-inline: 1.05rem 1.2rem;
+  }
+  .btn-appstore:hover {
+    background: #182033;
+    transform: scale(1.02);
+  }
+  .btn-appstore svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  .btn-appstore .btn-appstore-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.05;
+    text-align: left;
+  }
+  .btn-appstore .btn-appstore-text small {
+    font-size: 0.62rem;
+    font-weight: 500;
+    opacity: 0.85;
+    letter-spacing: 0.01em;
+  }
+  .btn-appstore .btn-appstore-text strong {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
 
   .feature-panel {
     position: relative;
@@ -600,7 +633,7 @@
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }
     .hero-mark, .hero-brand, .hero h1, .hero-sub, .hero-actions { animation: none; }
-    a.app-card:hover, .btn-primary:hover { transform: none; }
+    a.app-card:hover, .btn-primary:hover, .btn-appstore:hover { transform: none; }
     .viz .spin-slow,
     .viz .spin-med,
     .viz .needle,
@@ -725,7 +758,10 @@
             <span>No analytics</span>
           </div>
           <div class="feature-actions">
-            <a class="btn btn-primary" href="https://github.com/Bhuratshryas/Compass" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <a class="btn btn-appstore" href="https://apps.apple.com/us/app/compass-local-ai/id6760742955" target="_blank" rel="noopener noreferrer" aria-label="Download Compass Local AI on the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.97 2.93 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+              <span class="btn-appstore-text"><small>Download on the</small><strong>App Store</strong></span>
+            </a>
           </div>
         </div>
         <div class="feature-panel reveal" aria-hidden="true">
@@ -780,7 +816,10 @@
             <span>Share sheet</span>
           </div>
           <div class="feature-actions">
-            <a class="btn btn-primary" href="https://github.com/Bhuratshryas/FlowPad" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <a class="btn btn-appstore" href="https://apps.apple.com/us/app/flow-pad/id6760590858" target="_blank" rel="noopener noreferrer" aria-label="Download Flow Pad on the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.97 2.93 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+              <span class="btn-appstore-text"><small>Download on the</small><strong>App Store</strong></span>
+            </a>
           </div>
         </div>
         <div class="feature-panel reveal" aria-hidden="true">
@@ -836,7 +875,10 @@
             <span>Quick Start</span>
           </div>
           <div class="feature-actions">
-            <a class="btn btn-primary" href="https://github.com/Bhuratshryas/Ten" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <a class="btn btn-appstore" href="https://apps.apple.com/us/app/ten-fitness/id6796546052" target="_blank" rel="noopener noreferrer" aria-label="Download Ten Fitness on the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.97 2.93 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+              <span class="btn-appstore-text"><small>Download on the</small><strong>App Store</strong></span>
+            </a>
           </div>
         </div>
         <div class="feature-panel reveal" aria-hidden="true">
@@ -880,7 +922,10 @@
             <span>VoiceOver</span>
           </div>
           <div class="feature-actions">
-            <a class="btn btn-primary" href="https://github.com/Bhuratshryas/PersonalEyes" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <a class="btn btn-appstore" href="https://apps.apple.com/us/app/personal-eyes/id6790285585" target="_blank" rel="noopener noreferrer" aria-label="Download Personal Eyes on the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.97 2.93 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+              <span class="btn-appstore-text"><small>Download on the</small><strong>App Store</strong></span>
+            </a>
           </div>
         </div>
         <div class="feature-panel reveal" aria-hidden="true">
