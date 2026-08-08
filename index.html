@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Camou Labs</title>
+<meta name="description" content="Camou Labs builds intelligent software with care for impact — Compass Local AI, Flow Pad, Ten Fitness, and Personal Eyes." />
+<link rel="icon" href="logo.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #203880;
+    --navy-deep: #182c66;
+    --blue: #2068b0;
+    --blue-soft: #2f7bc4;
+    --ice: #c8d8f0;
+    --ice-soft: #e4edf8;
+    --bg: #eef3f9;
+    --bg-white: #f7fafd;
+    --ink: #203880;
+    --muted: #5a6d8a;
+    --faint: #8a9bb0;
+    --line: rgba(32, 56, 128, 0.12);
+    --accent: #2068b0;
+    --accent-soft: #2f7bc4;
+    --on-accent: #f7fafd;
+    --max: 980px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Plus Jakarta Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.47;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap {
+    width: min(100% - 2.4rem, var(--max));
+    margin-inline: auto;
+  }
+  @media (min-width: 800px) {
+    .wrap { width: min(100% - 4rem, var(--max)); }
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(238, 243, 249, 0.78);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .25s ease;
+  }
+  .nav.scrolled { border-bottom-color: var(--line); }
+  .nav-inner {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .brand img {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    gap: 1.6rem;
+  }
+  @media (min-width: 720px) { .nav-links { display: flex; } }
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    transition: color .2s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--on-accent);
+    background: var(--accent);
+    padding: 0.42rem 0.9rem;
+    border-radius: 980px;
+    transition: background .2s ease;
+  }
+  .nav-cta:hover { background: var(--accent-soft); }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: clamp(3.5rem, 10vh, 6.5rem) 0 clamp(3.75rem, 9vh, 6rem);
+    min-height: min(88vh, 780px);
+    display: flex;
+    align-items: center;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% -10%, rgba(32, 104, 176, 0.18) 0%, transparent 58%),
+      radial-gradient(ellipse 45% 40% at 80% 70%, rgba(32, 56, 128, 0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 35% at 15% 75%, rgba(200, 216, 240, 0.55) 0%, transparent 50%),
+      linear-gradient(180deg, #f7fafd 0%, #eef3f9 55%, #e4edf8 100%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; width: 100%; }
+  .hero-mark {
+    width: clamp(88px, 14vw, 120px);
+    height: auto;
+    margin: 0 auto 1.35rem;
+    display: block;
+    filter: drop-shadow(0 18px 40px rgba(32, 56, 128, 0.18));
+    animation: float-in .9s cubic-bezier(.16,1,.3,1) both;
+  }
+  .hero-brand {
+    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin-bottom: 0.85rem;
+    animation: rise .9s cubic-bezier(.16,1,.3,1) .08s both;
+  }
+  .hero h1 {
+    max-width: 14ch;
+    margin: 0 auto;
+    font-size: clamp(2.45rem, 6.2vw, 4.6rem);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    animation: rise .9s cubic-bezier(.16,1,.3,1) .14s both;
+  }
+  .hero-sub {
+    max-width: 34rem;
+    margin: 1.35rem auto 0;
+    font-size: clamp(1.05rem, 1.7vw, 1.22rem);
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: -0.015em;
+    line-height: 1.45;
+    text-wrap: pretty;
+    animation: rise .9s cubic-bezier(.16,1,.3,1) .22s both;
+  }
+  .hero-actions {
+    margin-top: 1.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem 1.1rem;
+    animation: rise .9s cubic-bezier(.16,1,.3,1) .3s both;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    min-height: 42px;
+    padding: 0.65rem 1.15rem;
+    border-radius: 980px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  .btn-primary:hover {
+    background: var(--accent-soft);
+    transform: scale(1.02);
+  }
+  .btn-text {
+    color: var(--accent);
+  }
+  .btn-text:hover { color: var(--navy); }
+  .chev { font-size: 1.05em; }
+
+  .section {
+    padding: clamp(4.25rem, 10vh, 6.75rem) 0;
+  }
+  .section-white { background: var(--bg-white); }
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.65rem;
+  }
+  .section h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+    max-width: 16ch;
+  }
+  .lede {
+    margin-top: 0.9rem;
+    max-width: 36rem;
+    font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+    color: var(--muted);
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+  }
+
+  #mission {
+    padding: clamp(5.5rem, 13vh, 8.75rem) 0;
+  }
+  #mission h2 {
+    font-size: clamp(2.1rem, 4.4vw, 3.3rem);
+    max-width: 12ch;
+  }
+  #mission .prose p {
+    font-size: clamp(1.08rem, 1.65vw, 1.28rem);
+    line-height: 1.5;
+  }
+  #mission .prose p + p { margin-top: 1.15rem; }
+
+  .split {
+    display: grid;
+    gap: 1.5rem;
+  }
+  @media (min-width: 860px) {
+    .split {
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(2.25rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+  }
+  .prose p {
+    font-size: clamp(1rem, 1.45vw, 1.12rem);
+    color: var(--muted);
+    letter-spacing: -0.01em;
+  }
+  .prose p + p { margin-top: 0.95rem; }
+
+  #apps .apps-head {
+    max-width: 40rem;
+  }
+  #apps .apps-head h2 { max-width: none; }
+
+  .app-grid {
+    margin-top: clamp(2rem, 4.5vh, 2.85rem);
+    display: grid;
+    gap: 0.95rem;
+  }
+  @media (min-width: 700px) {
+    .app-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.05rem;
+    }
+  }
+
+  a.app-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 17.5rem;
+    padding: 1.45rem 1.35rem 1.4rem;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background:
+      linear-gradient(165deg, rgba(255,255,255,0.92) 0%, rgba(247,250,253,0.96) 100%);
+    overflow: hidden;
+    transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+  }
+  a.app-card::before {
+    content: "";
+    position: absolute;
+    inset: auto -20% -35% auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(32, 104, 176, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  a.app-card:hover {
+    border-color: rgba(32, 104, 176, 0.28);
+    box-shadow: 0 16px 40px rgba(32, 56, 128, 0.1);
+    transform: translateY(-3px);
+  }
+  .app-card .num {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--faint);
+    letter-spacing: 0.06em;
+    margin: 0 0 0.85rem;
+    line-height: 1;
+  }
+  .app-card .tag {
+    display: inline-flex;
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--blue);
+    background: var(--ice-soft);
+    padding: 0.28rem 0.55rem;
+    border-radius: 980px;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.85rem;
+  }
+  .app-card h3 {
+    font-size: clamp(1.25rem, 2vw, 1.45rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.55rem;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .app-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    max-width: 34ch;
+  }
+  .app-card .app-link {
+    margin-top: auto;
+    padding-top: 1.35rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  a.app-card:hover .app-link { color: var(--navy); }
+
+  .app-feature {
+    padding: clamp(4.5rem, 11vh, 7rem) 0;
+  }
+  .app-feature:nth-child(even) { background: var(--bg-white); }
+  .app-feature .feature-inner {
+    display: grid;
+    gap: 1.75rem;
+  }
+  @media (min-width: 860px) {
+    .app-feature .feature-inner {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .app-feature.reverse .feature-inner {
+      grid-template-columns: 0.95fr 1.05fr;
+    }
+    .app-feature.reverse .feature-copy { order: 2; }
+    .app-feature.reverse .feature-panel { order: 1; }
+  }
+  .feature-copy h3 {
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+    max-width: 12ch;
+  }
+  .feature-copy p {
+    margin-top: 0.9rem;
+    max-width: 34rem;
+    color: var(--muted);
+    font-size: clamp(1.02rem, 1.45vw, 1.15rem);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+  .feature-meta {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .feature-meta span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--navy);
+    background: rgba(200, 216, 240, 0.55);
+    padding: 0.35rem 0.65rem;
+    border-radius: 980px;
+    letter-spacing: -0.01em;
+  }
+  .feature-actions {
+    margin-top: 1.45rem;
+  }
+  .feature-panel {
+    position: relative;
+    min-height: 220px;
+    border-radius: 28px;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 20%, rgba(200, 216, 240, 0.75) 0%, transparent 60%),
+      linear-gradient(145deg, #203880 0%, #2068b0 55%, #2f7bc4 100%);
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(32, 56, 128, 0.18);
+  }
+  .feature-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 78% 72%, rgba(255,255,255,0.16) 0%, transparent 28%),
+      radial-gradient(circle at 20% 80%, rgba(200, 216, 240, 0.2) 0%, transparent 32%);
+    pointer-events: none;
+  }
+  .feature-panel .panel-label {
+    position: absolute;
+    left: 1.35rem;
+    bottom: 1.25rem;
+    z-index: 1;
+    color: rgba(247, 250, 253, 0.92);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .feature-panel .panel-num {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.35rem;
+    z-index: 1;
+    color: rgba(247, 250, 253, 0.45);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  .footer {
+    padding: 2.25rem 0 2.5rem;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.4rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer .brand { font-size: 0.92rem; }
+  .footer .brand img { width: 18px; height: 18px; }
+  .footer-tag {
+    color: var(--faint);
+    font-size: 0.82rem;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.2rem;
+    margin-top: 1rem;
+  }
+  .footer-links a {
+    color: var(--muted);
+    font-size: 0.8rem;
+    transition: color .2s ease;
+  }
+  .footer-links a:hover { color: var(--ink); }
+  .copyright {
+    margin-top: 1.1rem;
+    color: var(--faint);
+    font-size: 0.72rem;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1);
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes float-in {
+    from { opacity: 0; transform: translateY(18px) scale(0.96); }
+    to { opacity: 1; transform: none; }
+  }
+
+  a:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-mark, .hero-brand, .hero h1, .hero-sub, .hero-actions {
+      animation: none;
+    }
+    a.app-card:hover, .btn-primary:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Camou Labs home">
+        <img src="logo.png" alt="" width="22" height="22" />
+        <span>Camou Labs</span>
+      </a>
+      <div class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#apps">Apps</a>
+        <a href="#products">Products</a>
+      </div>
+      <a class="nav-cta" href="#apps">Explore apps</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap hero-inner">
+      <img class="hero-mark" src="logo.png" alt="Camou Labs" width="120" height="120" />
+      <p class="hero-brand">Camou Labs</p>
+      <h1>Intelligent software, built with care.</h1>
+      <p class="hero-sub">On-device AI and thoughtful products that respect privacy and create real-world impact.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#apps">View apps</a>
+        <a class="btn btn-text" href="#mission">Learn more <span class="chev" aria-hidden="true">›</span></a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section section-white" id="mission">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <p class="eyebrow">Mission</p>
+          <h2>Technology for a better tomorrow.</h2>
+        </div>
+        <div class="prose reveal">
+          <p>At Camou Labs, we believe technology can help solve meaningful problems and make life better for everyone. We experiment carefully, ship with restraint, and keep people at the center.</p>
+          <p>From private on-device intelligence to accessibility and everyday wellness, our work is built for impact you can feel — not noise you have to manage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apps">
+    <div class="wrap">
+      <div class="apps-head reveal">
+        <p class="eyebrow">Applications</p>
+        <h2>Four products. One standard of care.</h2>
+        <p class="lede">Privacy-first tools across intelligence, voice, fitness, and accessibility — designed to feel calm, clear, and useful from the first tap.</p>
+      </div>
+      <div class="app-grid">
+        <a class="app-card reveal" href="#compass">
+          <p class="num">01</p>
+          <span class="tag">On-device AI</span>
+          <h3>Compass Local AI</h3>
+          <p>A privacy-first assistant that answers on your device, with optional cited web search when you choose it.</p>
+          <span class="app-link">Explore Compass ›</span>
+        </a>
+        <a class="app-card reveal" href="#flowpad">
+          <p class="num">02</p>
+          <span class="tag">Voice notes</span>
+          <h3>Flow Pad</h3>
+          <p>One-tap recording with on-device transcription and summaries — capture ideas without leaving your phone.</p>
+          <span class="app-link">Explore Flow Pad ›</span>
+        </a>
+        <a class="app-card reveal" href="#ten">
+          <p class="num">03</p>
+          <span class="tag">Fitness</span>
+          <h3>Ten Fitness</h3>
+          <p>Focused ten-minute workouts for iPhone and Apple Watch, with the quiet clarity of a notes app.</p>
+          <span class="app-link">Explore Ten ›</span>
+        </a>
+        <a class="app-card reveal" href="#personaleyes">
+          <p class="num">04</p>
+          <span class="tag">Accessibility</span>
+          <h3>Personal Eyes</h3>
+          <p>On-device vision that describes the world for blind and low-vision users — private, spoken, immediate.</p>
+          <span class="app-link">Explore Personal Eyes ›</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="products">
+    <section class="app-feature" id="compass">
+      <div class="wrap feature-inner">
+        <div class="feature-copy reveal">
+          <p class="eyebrow">Compass Local AI</p>
+          <h3>Answers that stay on your device.</h3>
+          <p>Ask questions, attach images, and get helpful responses generated locally by default. Optional web search with citations stays off until you turn it on — and Compass keeps working fully offline.</p>
+          <div class="feature-meta">
+            <span>Apple Intelligence</span>
+            <span>On-device OCR</span>
+            <span>Offline-first</span>
+            <span>No analytics</span>
+          </div>
+          <div class="feature-actions">
+            <a class="btn btn-primary" href="https://github.com/Bhuratshryas/Compass" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+        </div>
+        <div class="feature-panel reveal" aria-hidden="true">
+          <span class="panel-num">01</span>
+          <span class="panel-label">Compass Local AI</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-feature reverse" id="flowpad">
+      <div class="wrap feature-inner">
+        <div class="feature-copy reveal">
+          <p class="eyebrow">Flow Pad</p>
+          <h3>Speak it. See it clearly.</h3>
+          <p>A professional voice recorder that transcribes and summarizes on device. Live waveforms, searchable notes, and one-tap copy — built for people who think out loud.</p>
+          <div class="feature-meta">
+            <span>On-device STT</span>
+            <span>Smart summaries</span>
+            <span>Searchable library</span>
+            <span>Share sheet</span>
+          </div>
+          <div class="feature-actions">
+            <a class="btn btn-primary" href="https://github.com/Bhuratshryas/FlowPad" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+        </div>
+        <div class="feature-panel reveal" aria-hidden="true">
+          <span class="panel-num">02</span>
+          <span class="panel-label">Flow Pad</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-feature" id="ten">
+      <div class="wrap feature-inner">
+        <div class="feature-copy reveal">
+          <p class="eyebrow">Ten Fitness</p>
+          <h3>Ten minutes. Done right.</h3>
+          <p>Bodyweight workouts for iPhone and Apple Watch with daily plans, streaks, and animated guides. Designed with the calm elegance of Apple Notes — not a loud gym feed.</p>
+          <div class="feature-meta">
+            <span>iPhone + Watch</span>
+            <span>Daily plans</span>
+            <span>Streaks</span>
+            <span>Quick Start</span>
+          </div>
+          <div class="feature-actions">
+            <a class="btn btn-primary" href="https://github.com/Bhuratshryas/Ten" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+        </div>
+        <div class="feature-panel reveal" aria-hidden="true">
+          <span class="panel-num">03</span>
+          <span class="panel-label">Ten Fitness</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-feature reverse" id="personaleyes">
+      <div class="wrap feature-inner">
+        <div class="feature-copy reveal">
+          <p class="eyebrow">Personal Eyes</p>
+          <h3>Sight, spoken privately.</h3>
+          <p>Native iOS assistance for blind and low-vision users. The camera describes people, objects, and scenes on device — with aiming guidance, VoiceOver support, and nothing uploaded to our servers.</p>
+          <div class="feature-meta">
+            <span>On-device vision</span>
+            <span>Spoken descriptions</span>
+            <span>Aiming cues</span>
+            <span>VoiceOver</span>
+          </div>
+          <div class="feature-actions">
+            <a class="btn btn-primary" href="https://github.com/Bhuratshryas/PersonalEyes" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+        </div>
+        <div class="feature-panel reveal" aria-hidden="true">
+          <span class="panel-num">04</span>
+          <span class="panel-label">Personal Eyes</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-row">
+        <a class="brand" href="#top">
+          <img src="logo.png" alt="" width="18" height="18" />
+          <span>Camou Labs</span>
+        </a>
+        <p class="footer-tag">Intelligent software, built with care.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#compass">Compass</a>
+        <a href="#flowpad">Flow Pad</a>
+        <a href="#ten">Ten Fitness</a>
+        <a href="#personaleyes">Personal Eyes</a>
+        <a href="https://www.linkedin.com/company/camoulabs/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <p class="copyright">Copyright © 2026 Camou Labs. All rights reserved. San Francisco, California.</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const items = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      items.forEach(el => io.observe(el));
+    }
+  </script>
+</body>
+</html>
