@@ -26,7 +26,7 @@
     --accent: #2068b0;
     --accent-soft: #2f7bc4;
     --on-accent: #f7fafd;
-    --max: 980px;
+    --max: 1040px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,22 +37,24 @@
     font-family: "Plus Jakarta Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    line-height: 1.47;
+    line-height: 1.5;
   }
   a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
   .wrap {
     width: min(100% - 2.4rem, var(--max));
     margin-inline: auto;
   }
   @media (min-width: 800px) {
-    .wrap { width: min(100% - 4rem, var(--max)); }
+    .wrap { width: min(100% - 4.5rem, var(--max)); }
   }
 
+  /* Nav */
   .nav {
     position: sticky;
     top: 0;
     z-index: 40;
-    background: rgba(238, 243, 249, 0.78);
+    background: rgba(238, 243, 249, 0.8);
     backdrop-filter: saturate(180%) blur(18px);
     -webkit-backdrop-filter: saturate(180%) blur(18px);
     border-bottom: 1px solid transparent;
@@ -60,7 +62,7 @@
   }
   .nav.scrolled { border-bottom-color: var(--line); }
   .nav-inner {
-    min-height: 52px;
+    min-height: 56px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -75,19 +77,18 @@
     letter-spacing: -0.02em;
   }
   .brand img {
-    width: 22px;
-    height: 22px;
-    border-radius: 5px;
-    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
   }
   .nav-links {
     display: none;
-    gap: 1.6rem;
+    align-items: center;
+    gap: 1.35rem;
   }
-  @media (min-width: 720px) { .nav-links { display: flex; } }
+  @media (min-width: 820px) { .nav-links { display: flex; } }
   .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 400;
+    font-size: 0.82rem;
     color: var(--muted);
     transition: color .2s ease;
   }
@@ -97,63 +98,56 @@
     font-weight: 500;
     color: var(--on-accent);
     background: var(--accent);
-    padding: 0.42rem 0.9rem;
+    padding: 0.45rem 0.95rem;
     border-radius: 980px;
     transition: background .2s ease;
   }
   .nav-cta:hover { background: var(--accent-soft); }
 
+  /* Hero */
   .hero {
     position: relative;
     overflow: hidden;
     text-align: center;
-    padding: clamp(3.5rem, 10vh, 6.5rem) 0 clamp(3.75rem, 9vh, 6rem);
-    min-height: min(88vh, 780px);
-    display: flex;
-    align-items: center;
+    padding: clamp(4rem, 11vh, 7rem) 0 clamp(3.5rem, 8vh, 5.5rem);
   }
   .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 80% 55% at 50% -10%, rgba(32, 104, 176, 0.18) 0%, transparent 58%),
-      radial-gradient(ellipse 45% 40% at 80% 70%, rgba(32, 56, 128, 0.08) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 35% at 15% 75%, rgba(200, 216, 240, 0.55) 0%, transparent 50%),
-      linear-gradient(180deg, #f7fafd 0%, #eef3f9 55%, #e4edf8 100%);
+      radial-gradient(ellipse 75% 50% at 50% 0%, rgba(32, 104, 176, 0.16) 0%, transparent 58%),
+      radial-gradient(ellipse 40% 35% at 85% 80%, rgba(32, 56, 128, 0.08) 0%, transparent 55%),
+      linear-gradient(180deg, #f7fafd 0%, #eef3f9 60%, #e8eef7 100%);
     pointer-events: none;
   }
-  .hero-inner { position: relative; z-index: 1; width: 100%; }
+  .hero-inner { position: relative; z-index: 1; }
   .hero-mark {
-    width: clamp(88px, 14vw, 120px);
-    height: auto;
-    margin: 0 auto 1.35rem;
-    display: block;
-    filter: drop-shadow(0 18px 40px rgba(32, 56, 128, 0.18));
+    width: clamp(84px, 12vw, 108px);
+    margin: 0 auto 1.2rem;
+    filter: drop-shadow(0 16px 36px rgba(32, 56, 128, 0.16));
     animation: float-in .9s cubic-bezier(.16,1,.3,1) both;
   }
   .hero-brand {
-    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    font-size: 1.05rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: var(--navy);
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.75rem;
     animation: rise .9s cubic-bezier(.16,1,.3,1) .08s both;
   }
   .hero h1 {
-    max-width: 14ch;
+    max-width: 13ch;
     margin: 0 auto;
-    font-size: clamp(2.45rem, 6.2vw, 4.6rem);
+    font-size: clamp(2.5rem, 6.4vw, 4.5rem);
     font-weight: 600;
     letter-spacing: -0.045em;
-    line-height: 1.05;
+    line-height: 1.04;
     animation: rise .9s cubic-bezier(.16,1,.3,1) .14s both;
   }
   .hero-sub {
-    max-width: 34rem;
-    margin: 1.35rem auto 0;
-    font-size: clamp(1.05rem, 1.7vw, 1.22rem);
-    font-weight: 400;
+    max-width: 32rem;
+    margin: 1.25rem auto 0;
+    font-size: clamp(1.05rem, 1.7vw, 1.2rem);
     color: var(--muted);
     letter-spacing: -0.015em;
     line-height: 1.45;
@@ -161,21 +155,21 @@
     animation: rise .9s cubic-bezier(.16,1,.3,1) .22s both;
   }
   .hero-actions {
-    margin-top: 1.9rem;
+    margin-top: 1.75rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 0.75rem 1.1rem;
+    gap: 0.7rem 1rem;
     animation: rise .9s cubic-bezier(.16,1,.3,1) .3s both;
   }
+
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem;
-    min-height: 42px;
-    padding: 0.65rem 1.15rem;
+    gap: 0.3rem;
+    min-height: 44px;
+    padding: 0.65rem 1.2rem;
     border-radius: 980px;
     font-size: 0.92rem;
     font-weight: 500;
@@ -194,218 +188,219 @@
   .btn-text:hover { color: var(--navy); }
   .chev { font-size: 1.05em; }
 
-  .section { padding: clamp(4.25rem, 10vh, 6.75rem) 0; }
-  .section-white { background: var(--bg-white); }
+  /* Shared section */
+  .section { padding: clamp(4rem, 9vh, 6.5rem) 0; }
+  .section-head {
+    max-width: 36rem;
+    margin-bottom: clamp(1.75rem, 4vh, 2.5rem);
+  }
+  .section-head.center {
+    text-align: center;
+    margin-inline: auto;
+  }
   .eyebrow {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: var(--accent);
-    letter-spacing: -0.01em;
-    margin-bottom: 0.65rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
   }
-  .section h2 {
-    font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  .section-head h2 {
+    font-size: clamp(1.85rem, 3.6vw, 2.7rem);
     font-weight: 600;
     letter-spacing: -0.035em;
     line-height: 1.12;
-    max-width: 16ch;
   }
   .lede {
-    margin-top: 0.9rem;
-    max-width: 36rem;
-    font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+    margin-top: 0.8rem;
+    font-size: clamp(1.02rem, 1.5vw, 1.14rem);
     color: var(--muted);
     letter-spacing: -0.01em;
     line-height: 1.5;
   }
 
-  #mission { padding: clamp(5.5rem, 13vh, 8.75rem) 0; }
-  #mission h2 {
-    font-size: clamp(2.1rem, 4.4vw, 3.3rem);
-    max-width: 12ch;
+  /* Mission */
+  #mission {
+    background: var(--bg-white);
+    border-block: 1px solid var(--line);
   }
-  #mission .prose p {
-    font-size: clamp(1.08rem, 1.65vw, 1.28rem);
-    line-height: 1.5;
+  .mission-grid {
+    display: grid;
+    gap: 1.75rem;
   }
-  #mission .prose p + p { margin-top: 1.15rem; }
-
-  .split { display: grid; gap: 1.5rem; }
-  @media (min-width: 860px) {
-    .split {
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: clamp(2.25rem, 5vw, 4.5rem);
+  @media (min-width: 800px) {
+    .mission-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
       align-items: center;
     }
   }
-  .prose p {
-    font-size: clamp(1rem, 1.45vw, 1.12rem);
+  .mission-grid h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 10ch;
+  }
+  .mission-copy p {
+    font-size: clamp(1.05rem, 1.55vw, 1.2rem);
     color: var(--muted);
     letter-spacing: -0.01em;
+    line-height: 1.55;
   }
-  .prose p + p { margin-top: 0.95rem; }
+  .mission-copy p + p { margin-top: 1rem; }
 
-  #apps .apps-head { max-width: 40rem; }
-  #apps .apps-head h2 { max-width: none; }
-
+  /* Apps overview */
   .app-grid {
-    margin-top: clamp(2rem, 4.5vh, 2.85rem);
     display: grid;
-    gap: 0.95rem;
+    gap: 0.9rem;
   }
   @media (min-width: 700px) {
     .app-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.05rem;
+      gap: 1rem;
     }
   }
-
   a.app-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 17.5rem;
-    padding: 1.45rem 1.35rem 1.4rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem 1.1rem;
+    align-items: start;
+    padding: 1.25rem 1.2rem;
     border: 1px solid var(--line);
-    border-radius: 22px;
-    background:
-      linear-gradient(165deg, rgba(255,255,255,0.92) 0%, rgba(247,250,253,0.96) 100%);
-    overflow: hidden;
-    transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
-  }
-  a.app-card::before {
-    content: "";
-    position: absolute;
-    inset: auto -20% -35% auto;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(32, 104, 176, 0.12) 0%, transparent 70%);
-    pointer-events: none;
+    border-radius: 20px;
+    background: var(--bg-white);
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
   }
   a.app-card:hover {
     border-color: rgba(32, 104, 176, 0.28);
-    box-shadow: 0 16px 40px rgba(32, 56, 128, 0.1);
-    transform: translateY(-3px);
-  }
-  .app-card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.75rem;
-    margin-bottom: 0.95rem;
-  }
-  .app-card .num {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--faint);
-    letter-spacing: 0.06em;
-    margin: 0;
-    line-height: 1;
-    padding-top: 0.35rem;
+    box-shadow: 0 14px 34px rgba(32, 56, 128, 0.08);
+    transform: translateY(-2px);
   }
   .app-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
     object-fit: cover;
-    box-shadow: 0 10px 24px rgba(32, 56, 128, 0.16);
+    box-shadow: 0 8px 20px rgba(32, 56, 128, 0.14);
     background: #fff;
   }
+  .app-card-body { min-width: 0; }
   .app-card .tag {
-    display: inline-flex;
-    align-self: flex-start;
+    display: inline-block;
     font-size: 0.7rem;
     font-weight: 600;
     color: var(--blue);
-    background: var(--ice-soft);
-    padding: 0.28rem 0.55rem;
-    border-radius: 980px;
+    margin-bottom: 0.35rem;
     letter-spacing: -0.01em;
-    margin-bottom: 0.85rem;
   }
   .app-card h3 {
-    font-size: clamp(1.25rem, 2vw, 1.45rem);
+    font-size: 1.15rem;
     font-weight: 600;
-    letter-spacing: -0.03em;
-    margin: 0 0 0.55rem;
-    line-height: 1.2;
-    color: var(--ink);
+    letter-spacing: -0.025em;
+    margin-bottom: 0.35rem;
   }
   .app-card p {
-    margin: 0;
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.45;
     letter-spacing: -0.01em;
-    max-width: 34ch;
   }
   .app-card .app-link {
-    margin-top: auto;
-    padding-top: 1.35rem;
-    font-size: 0.85rem;
+    grid-column: 2;
+    font-size: 0.84rem;
     font-weight: 500;
     color: var(--accent);
-    letter-spacing: -0.01em;
+    margin-top: 0.15rem;
   }
   a.app-card:hover .app-link { color: var(--navy); }
 
-  .app-feature { padding: clamp(4.5rem, 11vh, 7rem) 0; }
-  .app-feature:nth-child(even) { background: var(--bg-white); }
-  .app-feature .feature-inner {
+  /* Product details */
+  .products {
+    background: var(--bg-white);
+    border-top: 1px solid var(--line);
+  }
+  .product {
+    padding: clamp(3.75rem, 9vh, 6rem) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .product:last-child { border-bottom: 0; }
+  .product-inner {
     display: grid;
     gap: 1.75rem;
   }
-  @media (min-width: 860px) {
-    .app-feature .feature-inner {
+  @media (min-width: 900px) {
+    .product-inner {
       grid-template-columns: 1.05fr 0.95fr;
-      gap: clamp(2.5rem, 6vw, 5rem);
+      gap: clamp(2.5rem, 5vw, 4.5rem);
       align-items: center;
     }
-    .app-feature.reverse .feature-inner {
+    .product.reverse .product-inner {
       grid-template-columns: 0.95fr 1.05fr;
     }
-    .app-feature.reverse .feature-copy { order: 2; }
-    .app-feature.reverse .feature-panel { order: 1; }
+    .product.reverse .product-copy { order: 2; }
+    .product.reverse .product-visual { order: 1; }
   }
-  .feature-copy .app-icon {
-    width: 72px;
-    height: 72px;
-    border-radius: 18px;
-    margin-bottom: 1.1rem;
+  .product-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
   }
-  .feature-copy h3 {
-    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  .product-kicker img {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(32, 56, 128, 0.14);
+  }
+  .product-kicker span {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  .product-copy h3 {
+    font-size: clamp(1.7rem, 3.2vw, 2.45rem);
     font-weight: 600;
     letter-spacing: -0.035em;
     line-height: 1.12;
-    max-width: 12ch;
+    max-width: 14ch;
   }
-  .feature-copy p {
-    margin-top: 0.9rem;
+  .product-copy > p {
+    margin-top: 0.85rem;
     max-width: 34rem;
     color: var(--muted);
-    font-size: clamp(1.02rem, 1.45vw, 1.15rem);
-    line-height: 1.5;
+    font-size: clamp(1.02rem, 1.45vw, 1.14rem);
+    line-height: 1.55;
     letter-spacing: -0.01em;
   }
-  .feature-meta {
+  .benefits {
+    list-style: none;
     margin-top: 1.25rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: grid;
+    gap: 0.55rem;
   }
-  .feature-meta span {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--navy);
-    background: rgba(200, 216, 240, 0.55);
-    padding: 0.35rem 0.65rem;
-    border-radius: 980px;
+  .benefits li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--ink);
+    font-size: 0.94rem;
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
-  .feature-actions { margin-top: 1.45rem; }
+  .benefits li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+  .product-actions { margin-top: 1.5rem; }
+
   .btn-appstore {
     background: #0b1220;
     color: #f7fafd;
@@ -432,7 +427,6 @@
     font-size: 0.62rem;
     font-weight: 500;
     opacity: 0.85;
-    letter-spacing: 0.01em;
   }
   .btn-appstore .btn-appstore-text strong {
     font-size: 0.92rem;
@@ -440,85 +434,42 @@
     letter-spacing: -0.02em;
   }
 
-  .feature-panel {
+  .product-visual {
     position: relative;
-    min-height: 300px;
+    min-height: 280px;
     border-radius: 28px;
     background:
       radial-gradient(ellipse 70% 60% at 30% 20%, rgba(200, 216, 240, 0.35) 0%, transparent 60%),
       linear-gradient(145deg, #182c66 0%, #203880 42%, #2068b0 100%);
     overflow: hidden;
-    box-shadow: 0 24px 60px rgba(32, 56, 128, 0.18);
+    box-shadow: 0 22px 50px rgba(32, 56, 128, 0.16);
     display: grid;
     place-items: center;
-    padding: 1.5rem;
   }
-  .feature-panel .viz {
+  .product-visual .viz {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.42;
+    opacity: 0.4;
     pointer-events: none;
   }
-  .feature-panel .panel-logo {
+  .product-visual .panel-logo {
     position: relative;
     z-index: 2;
-    width: clamp(112px, 28vw, 148px);
-    height: clamp(112px, 28vw, 148px);
-    border-radius: 32px;
+    width: clamp(120px, 26vw, 152px);
+    height: clamp(120px, 26vw, 152px);
+    border-radius: 34px;
     object-fit: cover;
     box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
     background: #fff;
   }
-  .feature-panel .panel-badge {
-    position: absolute;
-    left: 1.15rem;
-    bottom: 1.1rem;
-    z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    color: rgba(247, 250, 253, 0.95);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-  .feature-panel .panel-badge img {
-    width: 28px;
-    height: 28px;
-    border-radius: 7px;
-    object-fit: cover;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-  .feature-panel .panel-num {
-    position: absolute;
-    top: 1.2rem;
-    right: 1.35rem;
-    z-index: 2;
-    color: rgba(247, 250, 253, 0.4);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-  }
 
-  /* SVG animation helpers */
-  .viz .spin-slow {
-    transform-origin: 160px 160px;
-    animation: spin 18s linear infinite;
-  }
-  .viz .spin-med {
-    transform-origin: 160px 160px;
-    animation: spin 10s linear infinite;
-  }
-  .viz .needle {
-    transform-origin: 160px 160px;
-    animation: needle 4.5s ease-in-out infinite;
-  }
-  .viz .pulse {
-    transform-origin: center;
-    animation: pulse 2.4s ease-in-out infinite;
-  }
+  /* SVG motion */
+  .viz .spin-slow { transform-origin: 160px 160px; animation: spin 18s linear infinite; }
+  .viz .spin-med { transform-origin: 160px 160px; animation: spin 10s linear infinite; }
+  .viz .needle { transform-origin: 160px 160px; animation: needle 4.5s ease-in-out infinite; }
+  .viz .pulse { transform-origin: center; animation: pulse 2.4s ease-in-out infinite; }
   .viz .wave {
     transform-box: fill-box;
     transform-origin: center bottom;
@@ -539,52 +490,55 @@
     stroke-dashoffset: 440;
     animation: ring-draw 3.2s ease-in-out infinite;
   }
-  .viz .scan {
-    animation: scan 2.8s ease-in-out infinite;
-  }
-  .viz .blink {
-    transform-origin: 160px 160px;
-    animation: blink 5s ease-in-out infinite;
-  }
-  .viz .float-a {
-    animation: float-y 3.5s ease-in-out infinite;
-  }
-  .viz .float-b {
-    animation: float-y 4.2s ease-in-out infinite reverse;
-  }
+  .viz .scan { animation: scan 2.8s ease-in-out infinite; }
+  .viz .blink { transform-origin: 160px 160px; animation: blink 5s ease-in-out infinite; }
+  .viz .float-a { animation: float-y 3.5s ease-in-out infinite; }
+  .viz .float-b { animation: float-y 4.2s ease-in-out infinite reverse; }
 
+  /* Footer */
   .footer {
-    padding: 2.25rem 0 2.5rem;
-    border-top: 1px solid var(--line);
+    padding: 2.75rem 0 2.4rem;
     background: var(--bg);
   }
-  .footer-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.4rem;
-    align-items: center;
-    justify-content: space-between;
+  .footer-grid {
+    display: grid;
+    gap: 1.75rem;
   }
-  .footer .brand { font-size: 0.92rem; }
-  .footer .brand img { width: 18px; height: 18px; }
-  .footer-tag {
+  @media (min-width: 760px) {
+    .footer-grid {
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+  }
+  .footer .brand { margin-bottom: 0.55rem; }
+  .footer .brand img { width: 20px; height: 20px; }
+  .footer-blurb {
     color: var(--faint);
-    font-size: 0.82rem;
+    font-size: 0.86rem;
+    max-width: 26ch;
+    line-height: 1.45;
   }
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem 1.2rem;
-    margin-top: 1rem;
+  .footer-col h4 {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 0.75rem;
   }
-  .footer-links a {
+  .footer-col a {
+    display: block;
     color: var(--muted);
-    font-size: 0.8rem;
+    font-size: 0.88rem;
+    margin-top: 0.45rem;
     transition: color .2s ease;
   }
-  .footer-links a:hover { color: var(--ink); }
+  .footer-col a:hover { color: var(--ink); }
   .copyright {
-    margin-top: 1.1rem;
+    margin-top: 2rem;
+    padding-top: 1.15rem;
+    border-top: 1px solid var(--line);
     color: var(--faint);
     font-size: 0.72rem;
   }
@@ -604,9 +558,7 @@
     from { opacity: 0; transform: translateY(18px) scale(0.96); }
     to { opacity: 1; transform: none; }
   }
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
+  @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes needle {
     0%, 100% { transform: rotate(-28deg); }
     50% { transform: rotate(34deg); }
@@ -664,122 +616,120 @@
   <nav class="nav" id="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="Camou Labs home">
-        <img src="logo.png" alt="" width="22" height="22" />
+        <img src="logo.png" alt="" width="24" height="24" />
         <span>Camou Labs</span>
       </a>
       <div class="nav-links">
         <a href="#mission">Mission</a>
         <a href="#apps">Apps</a>
-        <a href="#products">Products</a>
+        <a href="#compass">Compass</a>
+        <a href="#flowpad">Flow Pad</a>
+        <a href="#ten">Ten</a>
+        <a href="#personaleyes">Personal Eyes</a>
       </div>
-      <a class="nav-cta" href="#apps">Explore apps</a>
+      <a class="nav-cta" href="#apps">Get the apps</a>
     </div>
   </nav>
 
   <header class="hero" id="top">
     <div class="wrap hero-inner">
-      <img class="hero-mark" src="logo.png" alt="Camou Labs" width="120" height="120" />
+      <img class="hero-mark" src="logo.png" alt="Camou Labs" width="108" height="108" />
       <p class="hero-brand">Camou Labs</p>
       <h1>Apps that make everyday life easier.</h1>
-      <p class="hero-sub">Clear answers, quieter notes, short workouts, and a little more independence. Built around people, not noise.</p>
+      <p class="hero-sub">Clear answers, quieter notes, short workouts, and a little more independence.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#apps">View apps</a>
-        <a class="btn btn-text" href="#mission">Learn more <span class="chev" aria-hidden="true">›</span></a>
+        <a class="btn btn-primary" href="#apps">Browse apps</a>
+        <a class="btn btn-text" href="#mission">Our approach <span class="chev" aria-hidden="true">›</span></a>
       </div>
     </div>
   </header>
 
-  <section class="section section-white" id="mission">
-    <div class="wrap">
-      <div class="split">
-        <div class="reveal">
-          <p class="eyebrow">Mission</p>
-          <h2>Help that feels personal.</h2>
-        </div>
-        <div class="prose reveal">
-          <p>Camou Labs builds apps for the moments that matter: when you need an answer, want to remember a thought, have ten minutes to move, or want to understand what is in front of you.</p>
-          <p>We keep things calm, private, and useful. No clutter. No pressure. Just tools that respect your time and your life.</p>
-        </div>
+  <section class="section" id="mission">
+    <div class="wrap mission-grid">
+      <div class="reveal">
+        <p class="eyebrow">Mission</p>
+        <h2>Help that feels personal.</h2>
+      </div>
+      <div class="mission-copy reveal">
+        <p>We build for the moments that matter: when you need an answer, want to remember a thought, have ten minutes to move, or want to understand what is in front of you.</p>
+        <p>Calm. Private. Useful. No clutter, no pressure, just tools that respect your time.</p>
       </div>
     </div>
   </section>
 
   <section class="section" id="apps">
     <div class="wrap">
-      <div class="apps-head reveal">
+      <div class="section-head reveal">
         <p class="eyebrow">Apps</p>
         <h2>Four ways we help.</h2>
-        <p class="lede">Simple apps for thinking, remembering, moving, and seeing your world more clearly.</p>
+        <p class="lede">Choose what you need right now, then open the full story below.</p>
       </div>
       <div class="app-grid">
         <a class="app-card reveal" href="#compass">
-          <div class="app-card-top">
-            <p class="num">01</p>
-            <img class="app-icon" src="apps/compass.png" alt="Compass Local AI" width="64" height="64" />
+          <img class="app-icon" src="apps/compass.png" alt="" width="60" height="60" />
+          <div class="app-card-body">
+            <p class="tag">Ask anything</p>
+            <h3>Compass Local AI</h3>
+            <p>Get clear answers without giving up your privacy.</p>
           </div>
-          <span class="tag">Ask anything</span>
-          <h3>Compass Local AI</h3>
-          <p>Get clear answers to everyday questions, without giving up your privacy.</p>
-          <span class="app-link">Explore Compass ›</span>
+          <span class="app-link">Learn more ›</span>
         </a>
         <a class="app-card reveal" href="#flowpad">
-          <div class="app-card-top">
-            <p class="num">02</p>
-            <img class="app-icon" src="apps/flowpad.png" alt="Flow Pad" width="64" height="64" />
+          <img class="app-icon" src="apps/flowpad.png" alt="" width="60" height="60" />
+          <div class="app-card-body">
+            <p class="tag">Remember more</p>
+            <h3>Flow Pad</h3>
+            <p>Speak a thought, then find it later as a clean note.</p>
           </div>
-          <span class="tag">Remember more</span>
-          <h3>Flow Pad</h3>
-          <p>Speak a thought, then find it later as a clean note you can read and share.</p>
-          <span class="app-link">Explore Flow Pad ›</span>
+          <span class="app-link">Learn more ›</span>
         </a>
         <a class="app-card reveal" href="#ten">
-          <div class="app-card-top">
-            <p class="num">03</p>
-            <img class="app-icon" src="apps/ten.png" alt="Ten Fitness" width="64" height="64" />
+          <img class="app-icon" src="apps/ten.png" alt="" width="60" height="60" />
+          <div class="app-card-body">
+            <p class="tag">Feel better</p>
+            <h3>Ten Fitness</h3>
+            <p>Ten quiet minutes to move, even on busy days.</p>
           </div>
-          <span class="tag">Feel better</span>
-          <h3>Ten Fitness</h3>
-          <p>Ten quiet minutes to move your body, even on the busiest days.</p>
-          <span class="app-link">Explore Ten ›</span>
+          <span class="app-link">Learn more ›</span>
         </a>
         <a class="app-card reveal" href="#personaleyes">
-          <div class="app-card-top">
-            <p class="num">04</p>
-            <img class="app-icon" src="apps/personaleyes.png" alt="Personal Eyes" width="64" height="64" />
+          <img class="app-icon" src="apps/personaleyes.png" alt="" width="60" height="60" />
+          <div class="app-card-body">
+            <p class="tag">See more</p>
+            <h3>Personal Eyes</h3>
+            <p>Hear what is around you and move with more confidence.</p>
           </div>
-          <span class="tag">See more</span>
-          <h3>Personal Eyes</h3>
-          <p>Hear what is around you, so you can move through the world with more confidence.</p>
-          <span class="app-link">Explore Personal Eyes ›</span>
+          <span class="app-link">Learn more ›</span>
         </a>
       </div>
     </div>
   </section>
 
-  <div id="products">
-    <section class="app-feature" id="compass">
-      <div class="wrap feature-inner">
-        <div class="feature-copy reveal">
-          <img class="app-icon" src="apps/compass.png" alt="Compass Local AI" width="72" height="72" />
-          <p class="eyebrow">Compass Local AI</p>
+  <div class="products">
+    <section class="product" id="compass">
+      <div class="wrap product-inner">
+        <div class="product-copy reveal">
+          <div class="product-kicker">
+            <img src="apps/compass.png" alt="" width="44" height="44" />
+            <span>Compass Local AI</span>
+          </div>
           <h3>Ask. Understand. Move on.</h3>
           <p>When you need a quick answer or help making sense of a screenshot, Compass is there. Your questions stay yours, and you decide if it looks anything up online.</p>
-          <div class="feature-meta">
-            <span>Clear answers</span>
-            <span>Your chats stay private</span>
-            <span>Works without Wi‑Fi</span>
-            <span>No tracking</span>
-          </div>
-          <div class="feature-actions">
+          <ul class="benefits">
+            <li>Clear answers in plain language</li>
+            <li>Your chats stay private</li>
+            <li>Works without Wi-Fi</li>
+            <li>No tracking</li>
+          </ul>
+          <div class="product-actions">
             <a class="btn btn-appstore" href="https://apps.apple.com/us/app/compass-local-ai/id6760742955" target="_blank" rel="noopener noreferrer" aria-label="Download Compass Local AI on the App Store">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.97 2.93 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
               <span class="btn-appstore-text"><small>Download on the</small><strong>App Store</strong></span>
             </a>
           </div>
         </div>
-        <div class="feature-panel reveal" aria-hidden="true">
-          <span class="panel-num">01</span>
-          <img class="panel-logo" src="apps/compass.png" alt="" width="148" height="148" />
+        <div class="product-visual reveal" aria-hidden="true">
+          <img class="panel-logo" src="apps/compass.png" alt="" width="152" height="152" />
           <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <radialGradient id="cg" cx="50%" cy="45%" r="60%">
@@ -796,49 +746,41 @@
               <circle cx="160" cy="160" r="104"/>
               <circle cx="160" cy="160" r="78"/>
               <path d="M160 48 V72 M160 248 V272 M48 160 H72 M248 160 H272"/>
-              <path d="M86 86 L102 102 M234 86 L218 102 M86 234 L102 218 M234 234 L218 218" stroke-opacity=".5"/>
-            </g>
-            <g class="spin-med" fill="none" stroke="#7eb6ff" stroke-opacity=".55" stroke-width="1.5">
-              <circle cx="160" cy="160" r="58" stroke-dasharray="4 10"/>
             </g>
             <g class="needle">
               <polygon points="160,62 172,160 160,148 148,160" fill="url(#cn)"/>
               <polygon points="160,258 148,160 160,172 172,160" fill="#203880" fill-opacity=".85"/>
             </g>
             <circle class="pulse" cx="160" cy="160" r="10" fill="#c8d8f0"/>
-            <circle cx="160" cy="160" r="4.5" fill="#203880"/>
           </svg>
-          <div class="panel-badge">
-            <img src="apps/compass.png" alt="" width="28" height="28" />
-            <span>Compass Local AI</span>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="app-feature reverse" id="flowpad">
-      <div class="wrap feature-inner">
-        <div class="feature-copy reveal">
-          <img class="app-icon" src="apps/flowpad.png" alt="Flow Pad" width="72" height="72" />
-          <p class="eyebrow">Flow Pad</p>
+    <section class="product reverse" id="flowpad">
+      <div class="wrap product-inner">
+        <div class="product-copy reveal">
+          <div class="product-kicker">
+            <img src="apps/flowpad.png" alt="" width="44" height="44" />
+            <span>Flow Pad</span>
+          </div>
           <h3>Catch the thought before it fades.</h3>
           <p>Tap once, speak freely, and come back to a note you can actually use. Perfect for ideas, meetings, reminders, and everything in between.</p>
-          <div class="feature-meta">
-            <span>One-tap capture</span>
-            <span>Easy to reread</span>
-            <span>Find anything later</span>
-            <span>Share in a tap</span>
-          </div>
-          <div class="feature-actions">
+          <ul class="benefits">
+            <li>One-tap capture</li>
+            <li>Easy to reread</li>
+            <li>Find anything later</li>
+            <li>Share in a tap</li>
+          </ul>
+          <div class="product-actions">
             <a class="btn btn-appstore" href="https://apps.apple.com/us/app/flow-pad/id6760590858" target="_blank" rel="noopener noreferrer" aria-label="Download Flow Pad on the App Store">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.97 2.93 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
               <span class="btn-appstore-text"><small>Download on the</small><strong>App Store</strong></span>
             </a>
           </div>
         </div>
-        <div class="feature-panel reveal" aria-hidden="true">
-          <span class="panel-num">02</span>
-          <img class="panel-logo" src="apps/flowpad.png" alt="" width="148" height="148" />
+        <div class="product-visual reveal" aria-hidden="true">
+          <img class="panel-logo" src="apps/flowpad.png" alt="" width="152" height="152" />
           <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1">
@@ -865,40 +807,35 @@
               <rect class="wave" x="234" y="180" width="12" height="92" rx="6"/>
               <rect class="wave" x="254" y="192" width="12" height="68" rx="6"/>
             </g>
-            <circle class="float-a" cx="246" cy="86" r="6" fill="#c8d8f0" fill-opacity=".75"/>
-            <circle class="float-b" cx="74" cy="96" r="4" fill="#7eb6ff" fill-opacity=".8"/>
           </svg>
-          <div class="panel-badge">
-            <img src="apps/flowpad.png" alt="" width="28" height="28" />
-            <span>Flow Pad</span>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="app-feature" id="ten">
-      <div class="wrap feature-inner">
-        <div class="feature-copy reveal">
-          <img class="app-icon" src="apps/ten.png" alt="Ten Fitness" width="72" height="72" />
-          <p class="eyebrow">Ten Fitness</p>
-          <h3>Ten minutes is enough.</h3>
-          <p>No gym. No guilt. Just a short, focused workout that fits between meetings, classes, or the end of a long day. Calm guidance, not a loud feed.</p>
-          <div class="feature-meta">
-            <span>Fits busy days</span>
-            <span>No equipment</span>
-            <span>Build a streak</span>
-            <span>Start in seconds</span>
+    <section class="product" id="ten">
+      <div class="wrap product-inner">
+        <div class="product-copy reveal">
+          <div class="product-kicker">
+            <img src="apps/ten.png" alt="" width="44" height="44" />
+            <span>Ten Fitness</span>
           </div>
-          <div class="feature-actions">
+          <h3>Ten minutes is enough.</h3>
+          <p>No gym. No guilt. Just a short, focused workout that fits between meetings, classes, or the end of a long day.</p>
+          <ul class="benefits">
+            <li>Fits busy days</li>
+            <li>No equipment needed</li>
+            <li>Build a streak</li>
+            <li>Start in seconds</li>
+          </ul>
+          <div class="product-actions">
             <a class="btn btn-appstore" href="https://apps.apple.com/us/app/ten-fitness/id6796546052" target="_blank" rel="noopener noreferrer" aria-label="Download Ten Fitness on the App Store">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.97 2.93 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
               <span class="btn-appstore-text"><small>Download on the</small><strong>App Store</strong></span>
             </a>
           </div>
         </div>
-        <div class="feature-panel reveal" aria-hidden="true">
-          <span class="panel-num">03</span>
-          <img class="panel-logo" src="apps/ten.png" alt="" width="148" height="148" />
+        <div class="product-visual reveal" aria-hidden="true">
+          <img class="panel-logo" src="apps/ten.png" alt="" width="152" height="152" />
           <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
@@ -911,42 +848,35 @@
             <circle class="pulse" cx="160" cy="68" r="7" fill="#7eb6ff"/>
             <text x="160" y="176" text-anchor="middle" fill="#f7fafd" font-size="64" font-family="Plus Jakarta Sans, Helvetica Neue, sans-serif" font-weight="700" letter-spacing="-2">10</text>
             <text x="160" y="208" text-anchor="middle" fill="#c8d8f0" font-size="13" font-family="Plus Jakarta Sans, Helvetica Neue, sans-serif" font-weight="600" letter-spacing="2" opacity=".8">MINUTES</text>
-            <g class="float-a" fill="#c8d8f0" fill-opacity=".55">
-              <circle cx="248" cy="108" r="3.5"/>
-              <circle cx="72" cy="196" r="2.5"/>
-            </g>
           </svg>
-          <div class="panel-badge">
-            <img src="apps/ten.png" alt="" width="28" height="28" />
-            <span>Ten Fitness</span>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="app-feature reverse" id="personaleyes">
-      <div class="wrap feature-inner">
-        <div class="feature-copy reveal">
-          <img class="app-icon" src="apps/personaleyes.png" alt="Personal Eyes" width="72" height="72" />
-          <p class="eyebrow">Personal Eyes</p>
-          <h3>Know what is in front of you.</h3>
-          <p>Point your phone, listen, and get a clear description of people, objects, and scenes. Built for independence, with your privacy treated as non‑negotiable.</p>
-          <div class="feature-meta">
-            <span>Spoken guidance</span>
-            <span>More independence</span>
-            <span>Easy aiming help</span>
-            <span>Stays private</span>
+    <section class="product reverse" id="personaleyes">
+      <div class="wrap product-inner">
+        <div class="product-copy reveal">
+          <div class="product-kicker">
+            <img src="apps/personaleyes.png" alt="" width="44" height="44" />
+            <span>Personal Eyes</span>
           </div>
-          <div class="feature-actions">
+          <h3>Know what is in front of you.</h3>
+          <p>Point your phone, listen, and get a clear description of people, objects, and scenes. Built for independence, with your privacy treated as non-negotiable.</p>
+          <ul class="benefits">
+            <li>Spoken guidance</li>
+            <li>More independence</li>
+            <li>Easy aiming help</li>
+            <li>Stays private</li>
+          </ul>
+          <div class="product-actions">
             <a class="btn btn-appstore" href="https://apps.apple.com/us/app/personal-eyes/id6790285585" target="_blank" rel="noopener noreferrer" aria-label="Download Personal Eyes on the App Store">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.97 2.93 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
               <span class="btn-appstore-text"><small>Download on the</small><strong>App Store</strong></span>
             </a>
           </div>
         </div>
-        <div class="feature-panel reveal" aria-hidden="true">
-          <span class="panel-num">04</span>
-          <img class="panel-logo" src="apps/personaleyes.png" alt="" width="148" height="148" />
+        <div class="product-visual reveal" aria-hidden="true">
+          <img class="panel-logo" src="apps/personaleyes.png" alt="" width="152" height="152" />
           <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <radialGradient id="pupil" cx="40%" cy="35%" r="65%">
@@ -972,18 +902,7 @@
                 <rect class="scan" x="40" y="150" width="240" height="18" fill="url(#scanline)"/>
               </g>
             </g>
-            <g class="float-a" fill="none" stroke="#7eb6ff" stroke-opacity=".45" stroke-width="1.25">
-              <circle cx="160" cy="160" r="118" stroke-dasharray="2 12"/>
-            </g>
-            <g class="float-b" fill="#c8d8f0" fill-opacity=".5">
-              <circle cx="64" cy="88" r="3"/>
-              <circle cx="256" cy="220" r="4"/>
-            </g>
           </svg>
-          <div class="panel-badge">
-            <img src="apps/personaleyes.png" alt="" width="28" height="28" />
-            <span>Personal Eyes</span>
-          </div>
         </div>
       </div>
     </section>
@@ -991,19 +910,27 @@
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-row">
-        <a class="brand" href="#top">
-          <img src="logo.png" alt="" width="18" height="18" />
-          <span>Camou Labs</span>
-        </a>
-        <p class="footer-tag">Apps that make everyday life easier.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#compass">Compass</a>
-        <a href="#flowpad">Flow Pad</a>
-        <a href="#ten">Ten Fitness</a>
-        <a href="#personaleyes">Personal Eyes</a>
-        <a href="https://www.linkedin.com/company/camoulabs/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#top">
+            <img src="logo.png" alt="" width="20" height="20" />
+            <span>Camou Labs</span>
+          </a>
+          <p class="footer-blurb">Apps that make everyday life easier.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Apps</h4>
+          <a href="#compass">Compass Local AI</a>
+          <a href="#flowpad">Flow Pad</a>
+          <a href="#ten">Ten Fitness</a>
+          <a href="#personaleyes">Personal Eyes</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/company/camoulabs/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/CamouLabs" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://apps.apple.com/us/developer/shryas-bhurat/id1883531179" target="_blank" rel="noopener noreferrer">App Store</a>
+        </div>
       </div>
       <p class="copyright">Copyright © 2026 Camou Labs. All rights reserved. San Francisco, California.</p>
     </div>
