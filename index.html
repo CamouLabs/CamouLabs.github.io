@@ -305,12 +305,12 @@
     padding-top: 0.35rem;
   }
   .app-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 13px;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
     display: block;
     object-fit: cover;
-    box-shadow: 0 8px 20px rgba(32, 56, 128, 0.14);
+    box-shadow: 0 10px 24px rgba(32, 56, 128, 0.16);
     background: #fff;
   }
   .app-card .tag {
@@ -370,10 +370,10 @@
     .app-feature.reverse .feature-panel { order: 1; }
   }
   .feature-copy .app-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    margin-bottom: 1rem;
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    margin-bottom: 1.1rem;
   }
   .feature-copy h3 {
     font-size: clamp(1.7rem, 3.2vw, 2.4rem);
@@ -442,7 +442,7 @@
 
   .feature-panel {
     position: relative;
-    min-height: 280px;
+    min-height: 300px;
     border-radius: 28px;
     background:
       radial-gradient(ellipse 70% 60% at 30% 20%, rgba(200, 216, 240, 0.35) 0%, transparent 60%),
@@ -454,9 +454,22 @@
     padding: 1.5rem;
   }
   .feature-panel .viz {
-    width: min(100%, 280px);
-    height: auto;
-    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.42;
+    pointer-events: none;
+  }
+  .feature-panel .panel-logo {
+    position: relative;
+    z-index: 2;
+    width: clamp(112px, 28vw, 148px);
+    height: clamp(112px, 28vw, 148px);
+    border-radius: 32px;
+    object-fit: cover;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+    background: #fff;
   }
   .feature-panel .panel-badge {
     position: absolute;
@@ -702,7 +715,7 @@
         <a class="app-card reveal" href="#compass">
           <div class="app-card-top">
             <p class="num">01</p>
-            <img class="app-icon" src="apps/compass.png" alt="" width="52" height="52" />
+            <img class="app-icon" src="apps/compass.png" alt="Compass Local AI" width="64" height="64" />
           </div>
           <span class="tag">Ask anything</span>
           <h3>Compass Local AI</h3>
@@ -712,7 +725,7 @@
         <a class="app-card reveal" href="#flowpad">
           <div class="app-card-top">
             <p class="num">02</p>
-            <img class="app-icon" src="apps/flowpad.png" alt="" width="52" height="52" />
+            <img class="app-icon" src="apps/flowpad.png" alt="Flow Pad" width="64" height="64" />
           </div>
           <span class="tag">Remember more</span>
           <h3>Flow Pad</h3>
@@ -722,7 +735,7 @@
         <a class="app-card reveal" href="#ten">
           <div class="app-card-top">
             <p class="num">03</p>
-            <img class="app-icon" src="apps/ten.png" alt="" width="52" height="52" />
+            <img class="app-icon" src="apps/ten.png" alt="Ten Fitness" width="64" height="64" />
           </div>
           <span class="tag">Feel better</span>
           <h3>Ten Fitness</h3>
@@ -732,7 +745,7 @@
         <a class="app-card reveal" href="#personaleyes">
           <div class="app-card-top">
             <p class="num">04</p>
-            <img class="app-icon" src="apps/personaleyes.png" alt="" width="52" height="52" />
+            <img class="app-icon" src="apps/personaleyes.png" alt="Personal Eyes" width="64" height="64" />
           </div>
           <span class="tag">See more</span>
           <h3>Personal Eyes</h3>
@@ -747,7 +760,7 @@
     <section class="app-feature" id="compass">
       <div class="wrap feature-inner">
         <div class="feature-copy reveal">
-          <img class="app-icon" src="apps/compass.png" alt="Compass Local AI" width="56" height="56" />
+          <img class="app-icon" src="apps/compass.png" alt="Compass Local AI" width="72" height="72" />
           <p class="eyebrow">Compass Local AI</p>
           <h3>Ask. Understand. Move on.</h3>
           <p>When you need a quick answer or help making sense of a screenshot, Compass is there. Your questions stay yours, and you decide if it looks anything up online.</p>
@@ -766,7 +779,8 @@
         </div>
         <div class="feature-panel reveal" aria-hidden="true">
           <span class="panel-num">01</span>
-          <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <img class="panel-logo" src="apps/compass.png" alt="" width="148" height="148" />
+          <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <radialGradient id="cg" cx="50%" cy="45%" r="60%">
                 <stop offset="0%" stop-color="#c8d8f0" stop-opacity=".35"/>
@@ -805,7 +819,7 @@
     <section class="app-feature reverse" id="flowpad">
       <div class="wrap feature-inner">
         <div class="feature-copy reveal">
-          <img class="app-icon" src="apps/flowpad.png" alt="Flow Pad" width="56" height="56" />
+          <img class="app-icon" src="apps/flowpad.png" alt="Flow Pad" width="72" height="72" />
           <p class="eyebrow">Flow Pad</p>
           <h3>Catch the thought before it fades.</h3>
           <p>Tap once, speak freely, and come back to a note you can actually use. Perfect for ideas, meetings, reminders, and everything in between.</p>
@@ -824,7 +838,8 @@
         </div>
         <div class="feature-panel reveal" aria-hidden="true">
           <span class="panel-num">02</span>
-          <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <img class="panel-logo" src="apps/flowpad.png" alt="" width="148" height="148" />
+          <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#e4edf8"/>
@@ -864,7 +879,7 @@
     <section class="app-feature" id="ten">
       <div class="wrap feature-inner">
         <div class="feature-copy reveal">
-          <img class="app-icon" src="apps/ten.png" alt="Ten Fitness" width="56" height="56" />
+          <img class="app-icon" src="apps/ten.png" alt="Ten Fitness" width="72" height="72" />
           <p class="eyebrow">Ten Fitness</p>
           <h3>Ten minutes is enough.</h3>
           <p>No gym. No guilt. Just a short, focused workout that fits between meetings, classes, or the end of a long day. Calm guidance, not a loud feed.</p>
@@ -883,7 +898,8 @@
         </div>
         <div class="feature-panel reveal" aria-hidden="true">
           <span class="panel-num">03</span>
-          <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <img class="panel-logo" src="apps/ten.png" alt="" width="148" height="148" />
+          <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stop-color="#c8d8f0"/>
@@ -911,7 +927,7 @@
     <section class="app-feature reverse" id="personaleyes">
       <div class="wrap feature-inner">
         <div class="feature-copy reveal">
-          <img class="app-icon" src="apps/personaleyes.png" alt="Personal Eyes" width="56" height="56" />
+          <img class="app-icon" src="apps/personaleyes.png" alt="Personal Eyes" width="72" height="72" />
           <p class="eyebrow">Personal Eyes</p>
           <h3>Know what is in front of you.</h3>
           <p>Point your phone, listen, and get a clear description of people, objects, and scenes. Built for independence, with your privacy treated as non‑negotiable.</p>
@@ -930,7 +946,8 @@
         </div>
         <div class="feature-panel reveal" aria-hidden="true">
           <span class="panel-num">04</span>
-          <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <img class="panel-logo" src="apps/personaleyes.png" alt="" width="148" height="148" />
+          <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <radialGradient id="pupil" cx="40%" cy="35%" r="65%">
                 <stop offset="0%" stop-color="#c8d8f0"/>
