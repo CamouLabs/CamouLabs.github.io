@@ -1,6 +1,6 @@
 # Camou Labs
 
-Experimenting with emerging technology for impact.
+Emerging technology for impact.
 
 Public website for [Camou Labs](https://github.com/CamouLabs).
 

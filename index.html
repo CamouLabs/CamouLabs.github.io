@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Camou Labs</title>
-<meta name="description" content="Camou Labs experiments with emerging technology for impact, turning careful ideas into apps people can use every day." />
+<meta name="description" content="Camou Labs: Emerging technology for impact. Careful experiments that become apps people can use every day." />
 <link rel="icon" href="logo.png" type="image/png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -122,31 +122,24 @@
     pointer-events: none;
   }
   .hero-inner { position: relative; z-index: 1; }
-  .hero-brand {
-    font-size: 1.05rem;
+  .hero h1 {
+    max-width: 12ch;
+    margin: 0 auto;
+    font-size: clamp(2.5rem, 6.2vw, 4.4rem);
     font-weight: 600;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
     animation: rise .9s cubic-bezier(.16,1,.3,1) both;
   }
-  .hero h1 {
-    max-width: 16ch;
-    margin: 0 auto;
-    font-size: clamp(2.15rem, 5.4vw, 3.8rem);
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    line-height: 1.08;
-    animation: rise .9s cubic-bezier(.16,1,.3,1) .08s both;
-  }
   .hero-sub {
-    max-width: 32rem;
+    max-width: 30rem;
     margin: 1.25rem auto 0;
     font-size: clamp(1.05rem, 1.7vw, 1.2rem);
     color: var(--muted);
     letter-spacing: -0.015em;
     line-height: 1.45;
     text-wrap: pretty;
-    animation: rise .9s cubic-bezier(.16,1,.3,1) .16s both;
+    animation: rise .9s cubic-bezier(.16,1,.3,1) .1s both;
   }
   .hero-actions {
     margin-top: 1.75rem;
@@ -154,7 +147,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.7rem 1rem;
-    animation: rise .9s cubic-bezier(.16,1,.3,1) .24s both;
+    animation: rise .9s cubic-bezier(.16,1,.3,1) .18s both;
   }
 
   .btn {
@@ -587,7 +580,7 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }
-    .hero-brand, .hero h1, .hero-sub, .hero-actions { animation: none; }
+    .hero h1, .hero-sub, .hero-actions { animation: none; }
     a.app-card:hover, .btn-primary:hover, .btn-appstore:hover { transform: none; }
     .viz .spin-slow,
     .viz .spin-med,
@@ -623,9 +616,8 @@
 
   <header class="hero" id="top">
     <div class="wrap hero-inner">
-      <p class="hero-brand">Camou Labs</p>
-      <h1>Experimenting with emerging technology for impact.</h1>
-      <p class="hero-sub">We explore what is new, then ship the parts that help people live a little better.</p>
+      <h1>Emerging technology for impact.</h1>
+      <p class="hero-sub">We explore what is new, then ship what helps people live a little better.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#apps">See our work</a>
         <a class="btn btn-text" href="#mission">Our approach <span class="chev" aria-hidden="true">›</span></a>
@@ -905,7 +897,7 @@
             <img src="logo.png" alt="" width="20" height="20" />
             <span>Camou Labs</span>
           </a>
-          <p class="footer-blurb">Experimenting with emerging technology for impact.</p>
+          <p class="footer-blurb">Emerging technology for impact.</p>
         </div>
         <div class="footer-col">
           <h4>Apps</h4>
