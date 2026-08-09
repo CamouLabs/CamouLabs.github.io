@@ -150,6 +150,62 @@
       linear-gradient(180deg, #f7fafd 0%, #eef3f9 60%, #e8eef7 100%);
     pointer-events: none;
   }
+  .hero-viz {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-viz-stage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+  }
+  .hero-viz .spin-slow { transform-origin: 500px 360px; animation: spin 28s linear infinite; }
+  .hero-viz .spin-med { transform-origin: 500px 360px; animation: spin 14s linear infinite reverse; }
+  .hero-viz .needle { transform-origin: 500px 360px; animation: needle 5.5s ease-in-out infinite; }
+  .hero-viz .pulse { transform-origin: center; animation: pulse 2.8s ease-in-out infinite; }
+  .hero-viz .ring-draw {
+    stroke-dasharray: 520;
+    stroke-dashoffset: 520;
+    animation: ring-draw 3.6s ease-in-out infinite;
+  }
+  .hero-viz .scan { animation: scan 3.2s ease-in-out infinite; }
+  .hero-viz .blink { transform-origin: 820px 250px; animation: blink 5.5s ease-in-out infinite; }
+  .hero-viz .float-a { animation: float-y 4s ease-in-out infinite; }
+  .hero-viz .float-b { animation: float-y 5s ease-in-out infinite reverse; }
+  .hero-viz .float-c { animation: float-y 3.6s ease-in-out infinite; }
+  .hero-viz .wave {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: wave 1.15s ease-in-out infinite;
+  }
+  .hero-viz .wave:nth-child(2) { animation-delay: .08s; }
+  .hero-viz .wave:nth-child(3) { animation-delay: .16s; }
+  .hero-viz .wave:nth-child(4) { animation-delay: .04s; }
+  .hero-viz .wave:nth-child(5) { animation-delay: .2s; }
+  .hero-viz .wave:nth-child(6) { animation-delay: .12s; }
+  .hero-viz .wave:nth-child(7) { animation-delay: .24s; }
+  .hero-viz .drift-a { animation: hero-drift-a 11s ease-in-out infinite; }
+  .hero-viz .drift-b { animation: hero-drift-b 13s ease-in-out infinite; }
+  .hero-orb {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    width: min(72vw, 520px);
+    height: min(72vw, 520px);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 35% 30%, rgba(200, 216, 240, 0.55) 0%, transparent 42%),
+      radial-gradient(circle at 50% 55%, rgba(32, 104, 176, 0.14) 0%, transparent 62%),
+      linear-gradient(145deg, rgba(24, 44, 102, 0.08) 0%, rgba(32, 104, 176, 0.1) 100%);
+    filter: blur(2px);
+    animation: hero-orb 8s ease-in-out infinite;
+  }
   .hero-inner { position: relative; z-index: 1; width: 100%; }
   .hero h1 {
     width: fit-content;
@@ -640,6 +696,18 @@
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(6px); }
   }
+  @keyframes hero-orb {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
+    50% { transform: translate(-50%, -52%) scale(1.04); opacity: 1; }
+  }
+  @keyframes hero-drift-a {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(12px, -10px); }
+  }
+  @keyframes hero-drift-b {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-14px, 8px); }
+  }
   @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes needle {
     0%, 100% { transform: rotate(-28deg); }
@@ -680,7 +748,20 @@
     html { scroll-behavior: auto; scroll-snap-type: none; }
     .reveal,
     .benefits li { opacity: 1; transform: none; filter: none; transition: none; }
-    .hero h1, .hero-actions, .scroll-cue { animation: none; }
+    .hero h1, .hero-actions, .scroll-cue, .hero-orb { animation: none; }
+    .hero-viz .spin-slow,
+    .hero-viz .spin-med,
+    .hero-viz .needle,
+    .hero-viz .pulse,
+    .hero-viz .wave,
+    .hero-viz .ring-draw,
+    .hero-viz .scan,
+    .hero-viz .blink,
+    .hero-viz .float-a,
+    .hero-viz .float-b,
+    .hero-viz .float-c,
+    .hero-viz .drift-a,
+    .hero-viz .drift-b { animation: none; }
     a.app-card:hover, .btn-primary:hover, .btn-appstore:hover { transform: none; }
     .viz .spin-slow,
     .viz .spin-med,
@@ -751,6 +832,14 @@
       font-size: 0.88rem;
     }
     .scroll-cue { display: none; }
+    .hero-orb {
+      width: min(92vw, 420px);
+      height: min(92vw, 420px);
+      top: 48%;
+      opacity: 0.75;
+    }
+    .hero-viz-stage { opacity: 0.72; }
+    .hero-motif-side { opacity: 0.55; }
 
     .section-head { margin-bottom: 1.35rem; }
     .section-head h2 {
@@ -875,6 +964,94 @@
   </nav>
 
   <header class="hero" id="top">
+    <div class="hero-viz" aria-hidden="true">
+      <div class="hero-orb"></div>
+      <svg class="hero-viz-stage" viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="heroGlow" cx="50%" cy="48%" r="45%">
+            <stop offset="0%" stop-color="#c8d8f0" stop-opacity=".42"/>
+            <stop offset="100%" stop-color="#203880" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="heroNeedle" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e4edf8"/>
+            <stop offset="100%" stop-color="#2068b0"/>
+          </linearGradient>
+          <linearGradient id="heroWave" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7eb6ff"/>
+            <stop offset="100%" stop-color="#203880"/>
+          </linearGradient>
+          <linearGradient id="heroRing" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#c8d8f0"/>
+            <stop offset="100%" stop-color="#2068b0"/>
+          </linearGradient>
+          <linearGradient id="heroScan" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7eb6ff" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#c8d8f0" stop-opacity=".85"/>
+            <stop offset="100%" stop-color="#7eb6ff" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="heroPupil" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#c8d8f0"/>
+            <stop offset="50%" stop-color="#2068b0"/>
+            <stop offset="100%" stop-color="#182c66"/>
+          </radialGradient>
+          <clipPath id="heroEyeClip">
+            <path d="M760 250 C790 210, 850 210, 880 250 C850 290, 790 290, 760 250 Z"/>
+          </clipPath>
+        </defs>
+
+        <circle cx="500" cy="360" r="210" fill="url(#heroGlow)"/>
+
+        <g class="spin-slow" fill="none" stroke="#2068b0" stroke-opacity=".14" stroke-width="1.2">
+          <circle cx="500" cy="360" r="168"/>
+          <circle cx="500" cy="360" r="128"/>
+          <path d="M500 170 V204 M500 516 V550 M290 360 H324 M676 360 H710"/>
+        </g>
+        <g class="spin-med" fill="none" stroke="#c8d8f0" stroke-opacity=".28" stroke-width="1">
+          <circle cx="500" cy="360" r="148" stroke-dasharray="4 10"/>
+        </g>
+        <g class="needle">
+          <polygon points="500,198 512,360 500,348 488,360" fill="url(#heroNeedle)" opacity=".55"/>
+          <polygon points="500,522 488,360 500,372 512,360" fill="#203880" opacity=".28"/>
+        </g>
+        <circle class="pulse" cx="500" cy="360" r="8" fill="#2068b0" fill-opacity=".35"/>
+
+        <g class="hero-motif-side drift-a float-a" transform="translate(70, 250)">
+          <circle cx="70" cy="70" r="64" fill="#203880" fill-opacity=".05"/>
+          <g fill="url(#heroWave)" opacity=".55">
+            <rect class="wave" x="28" y="48" width="7" height="44" rx="3.5"/>
+            <rect class="wave" x="40" y="38" width="7" height="64" rx="3.5"/>
+            <rect class="wave" x="52" y="30" width="7" height="80" rx="3.5"/>
+            <rect class="wave" x="64" y="24" width="8" height="92" rx="4"/>
+            <rect class="wave" x="77" y="32" width="7" height="76" rx="3.5"/>
+            <rect class="wave" x="89" y="42" width="7" height="56" rx="3.5"/>
+            <rect class="wave" x="101" y="50" width="7" height="40" rx="3.5"/>
+          </g>
+        </g>
+
+        <g class="hero-motif-side drift-b float-b" transform="translate(790, 430)">
+          <circle cx="70" cy="70" r="58" fill="none" stroke="#203880" stroke-opacity=".12" stroke-width="10"/>
+          <circle class="ring-draw" cx="70" cy="70" r="58" fill="none" stroke="url(#heroRing)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 70 70)" opacity=".7"/>
+          <circle class="pulse" cx="70" cy="18" r="4" fill="#7eb6ff" opacity=".8"/>
+          <text x="70" y="78" text-anchor="middle" fill="#203880" fill-opacity=".45" font-size="28" font-family="Plus Jakarta Sans, Helvetica Neue, sans-serif" font-weight="700">10</text>
+        </g>
+
+        <g class="hero-motif-side float-c" transform="translate(0,0)">
+          <g class="blink">
+            <path d="M760 250 C790 210, 850 210, 880 250 C850 290, 790 290, 760 250 Z" fill="none" stroke="#2068b0" stroke-opacity=".28" stroke-width="2.5"/>
+            <g clip-path="url(#heroEyeClip)">
+              <circle cx="820" cy="250" r="22" fill="url(#heroPupil)" opacity=".7"/>
+              <circle class="pulse" cx="820" cy="250" r="8" fill="#182c66" opacity=".55"/>
+              <rect class="scan" x="760" y="242" width="120" height="10" fill="url(#heroScan)" opacity=".7"/>
+            </g>
+          </g>
+        </g>
+
+        <circle class="float-a" cx="210" cy="170" r="5" fill="#2068b0" fill-opacity=".22"/>
+        <circle class="float-b" cx="780" cy="160" r="4" fill="#7eb6ff" fill-opacity=".35"/>
+        <circle class="float-c" cx="180" cy="520" r="6" fill="#203880" fill-opacity=".14"/>
+        <circle class="float-a" cx="840" cy="560" r="5" fill="#2068b0" fill-opacity=".18"/>
+      </svg>
+    </div>
     <div class="wrap hero-inner">
       <h1>Emerging technology for impact.</h1>
       <div class="hero-actions">
