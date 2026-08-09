@@ -1,5 +1,7 @@
 # Camou Labs
 
+Experimenting with emerging technology for impact.
+
 Public website for [Camou Labs](https://github.com/CamouLabs).
 
 **Live site:** https://camoulabs.github.io
