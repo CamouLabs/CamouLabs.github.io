@@ -1149,37 +1149,20 @@
           <img class="panel-logo" src="apps/ten.png" alt="" width="152" height="152" />
           <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
-              <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#c8d8f0"/>
-                <stop offset="100%" stop-color="#2068b0"/>
-              </linearGradient>
-              <linearGradient id="ecgStroke" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#7eb6ff" stop-opacity="0"/>
-                <stop offset="40%" stop-color="#c8d8f0" stop-opacity=".95"/>
-                <stop offset="100%" stop-color="#2068b0" stop-opacity="0"/>
+              <radialGradient id="heartGlow" cx="50%" cy="45%" r="55%">
+                <stop offset="0%" stop-color="#c8d8f0" stop-opacity=".35"/>
+                <stop offset="100%" stop-color="#203880" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="heartFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e4edf8"/>
+                <stop offset="100%" stop-color="#7eb6ff"/>
               </linearGradient>
             </defs>
-            <circle cx="160" cy="150" r="102" fill="none" stroke="#203880" stroke-opacity=".28" stroke-width="10"/>
-            <circle class="ring-draw" cx="160" cy="150" r="102" fill="none" stroke="url(#tg)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 160 150)" opacity=".85"/>
-            <circle cx="160" cy="150" r="78" fill="none" stroke="#203880" stroke-opacity=".22" stroke-width="8"/>
-            <circle class="ring-draw-slow" cx="160" cy="150" r="78" fill="none" stroke="#7eb6ff" stroke-width="8" stroke-linecap="round" transform="rotate(40 160 150)" opacity=".55"/>
-
-            <g class="heart-beat" fill="#c8d8f0" fill-opacity=".85">
-              <path d="M160 168 C148 156, 132 148, 132 132 C132 120, 142 112, 154 112 C158 112, 160 114, 160 114 C160 114, 162 112, 166 112 C178 112, 188 120, 188 132 C188 148, 172 156, 160 168 Z"/>
+            <circle class="pulse" cx="160" cy="160" r="120" fill="url(#heartGlow)"/>
+            <circle class="pulse" cx="160" cy="160" r="78" fill="none" stroke="#c8d8f0" stroke-opacity=".22" stroke-width="2"/>
+            <g class="heart-beat" fill="url(#heartFill)">
+              <path d="M160 214 C132 190, 100 168, 100 132 C100 108, 118 92, 142 92 C152 92, 158 97, 160 104 C162 97, 168 92, 178 92 C202 92, 220 108, 220 132 C220 168, 188 190, 160 214 Z"/>
             </g>
-
-            <g fill="url(#tg)" opacity=".7">
-              <rect class="bar-bounce" x="78" y="236" width="12" height="42" rx="6"/>
-              <rect class="bar-bounce" x="98" y="228" width="12" height="50" rx="6"/>
-              <rect class="bar-bounce" x="118" y="220" width="12" height="58" rx="6"/>
-              <rect class="bar-bounce" x="138" y="214" width="14" height="64" rx="7"/>
-              <rect class="bar-bounce" x="160" y="220" width="12" height="58" rx="6"/>
-              <rect class="bar-bounce" x="180" y="228" width="12" height="50" rx="6"/>
-              <rect class="bar-bounce" x="200" y="234" width="12" height="44" rx="6"/>
-              <rect class="bar-bounce" x="220" y="240" width="12" height="38" rx="6"/>
-            </g>
-
-            <path class="ecg" d="M36 198 H92 L104 178 L118 214 L132 164 L146 198 H284" fill="none" stroke="url(#ecgStroke)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
       </div>
@@ -1211,47 +1194,27 @@
           <img class="panel-logo" src="apps/personaleyes.png" alt="" width="152" height="152" />
           <svg class="viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
-              <linearGradient id="accessGlow" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#c8d8f0" stop-opacity=".55"/>
-                <stop offset="100%" stop-color="#2068b0" stop-opacity=".15"/>
+              <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7eb6ff" stop-opacity="0"/>
+                <stop offset="45%" stop-color="#c8d8f0" stop-opacity=".95"/>
+                <stop offset="100%" stop-color="#7eb6ff" stop-opacity="0"/>
               </linearGradient>
-              <radialGradient id="personFill" cx="50%" cy="35%" r="70%">
-                <stop offset="0%" stop-color="#e4edf8"/>
-                <stop offset="100%" stop-color="#7eb6ff"/>
+              <radialGradient id="scanGlow" cx="50%" cy="50%" r="55%">
+                <stop offset="0%" stop-color="#c8d8f0" stop-opacity=".2"/>
+                <stop offset="100%" stop-color="#203880" stop-opacity="0"/>
               </radialGradient>
             </defs>
-
-            <circle class="sound-ring" cx="160" cy="160" r="108" fill="none" stroke="#c8d8f0" stroke-opacity=".28" stroke-width="2"/>
-            <circle class="sound-ring" cx="160" cy="160" r="108" fill="none" stroke="#7eb6ff" stroke-opacity=".22" stroke-width="2"/>
-            <circle class="sound-ring" cx="160" cy="160" r="108" fill="none" stroke="#2068b0" stroke-opacity=".18" stroke-width="2"/>
-
-            <g class="aim-glow" fill="none" stroke="#c8d8f0" stroke-width="3" stroke-linecap="round">
-              <path d="M78 98 H104 V124"/>
-              <path d="M242 98 H216 V124"/>
-              <path d="M78 222 H104 V196"/>
-              <path d="M242 222 H216 V196"/>
+            <circle cx="160" cy="160" r="118" fill="url(#scanGlow)"/>
+            <rect x="70" y="70" width="180" height="180" rx="28" fill="none" stroke="#c8d8f0" stroke-opacity=".35" stroke-width="2"/>
+            <g class="aim-glow" fill="none" stroke="#7eb6ff" stroke-width="3" stroke-linecap="round">
+              <path d="M86 104 H112 V130"/>
+              <path d="M234 104 H208 V130"/>
+              <path d="M86 216 H112 V190"/>
+              <path d="M234 216 H208 V190"/>
             </g>
-            <rect x="96" y="112" width="128" height="96" rx="18" fill="none" stroke="#2068b0" stroke-opacity=".28" stroke-width="1.5" stroke-dasharray="6 8"/>
-
-            <g fill="url(#personFill)" opacity=".9">
-              <circle cx="160" cy="132" r="14"/>
-              <path d="M138 156 C138 148, 146 144, 160 144 C174 144, 182 148, 182 156 L182 188 C182 196, 176 200, 168 200 L152 200 C144 200, 138 196, 138 188 Z"/>
-              <path d="M152 200 L146 236" stroke="#c8d8f0" stroke-width="5" stroke-linecap="round" fill="none"/>
-              <path d="M168 200 L176 236" stroke="#c8d8f0" stroke-width="5" stroke-linecap="round" fill="none"/>
-              <path d="M138 168 L118 186" stroke="#7eb6ff" stroke-width="5" stroke-linecap="round" fill="none"/>
-              <path d="M182 168 L198 178 L210 210" stroke="#c8d8f0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <circle cx="210" cy="214" r="5" fill="#e4edf8"/>
-            </g>
-
-            <g fill="#c8d8f0">
-              <circle class="guide-dot" cx="74" cy="150" r="4" fill-opacity=".55"/>
-              <circle class="guide-dot float-a" cx="250" cy="140" r="3.5" fill-opacity=".45"/>
-              <circle class="guide-dot float-b" cx="86" cy="210" r="3" fill-opacity=".4"/>
-              <circle class="guide-dot" cx="236" cy="204" r="3.5" fill-opacity=".5"/>
-            </g>
-
-            <path d="M236 120 C258 140, 258 180, 236 200" fill="none" stroke="url(#accessGlow)" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
-            <path d="M248 112 C278 140, 278 180, 248 208" fill="none" stroke="#7eb6ff" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+            <circle cx="160" cy="160" r="46" fill="none" stroke="#2068b0" stroke-opacity=".3" stroke-width="1.5"/>
+            <circle class="pulse" cx="160" cy="160" r="8" fill="#c8d8f0" fill-opacity=".75"/>
+            <rect class="scan" x="78" y="150" width="164" height="20" fill="url(#scanline)"/>
           </svg>
         </div>
       </div>
