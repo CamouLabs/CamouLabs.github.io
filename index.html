@@ -150,64 +150,6 @@
       linear-gradient(180deg, #f7fafd 0%, #eef3f9 60%, #e8eef7 100%);
     pointer-events: none;
   }
-  .hero-viz {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .hero-viz-stage {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.95;
-  }
-  .hero-viz .camo-a { animation: hero-camo-a 16s ease-in-out infinite; transform-origin: center; }
-  .hero-viz .camo-b { animation: hero-camo-b 19s ease-in-out infinite; transform-origin: center; }
-  .hero-viz .camo-c { animation: hero-camo-c 14s ease-in-out infinite; transform-origin: center; }
-  .hero-viz .ripple {
-    transform-origin: 500px 360px;
-    animation: hero-ripple 5.5s cubic-bezier(.16,1,.3,1) infinite;
-  }
-  .hero-viz .ripple:nth-child(2) { animation-delay: 1.8s; }
-  .hero-viz .ripple:nth-child(3) { animation-delay: 3.6s; }
-  .hero-viz .link {
-    stroke-dasharray: 6 10;
-    animation: hero-dash 8s linear infinite;
-  }
-  .hero-viz .node { animation: hero-node 3.2s ease-in-out infinite; transform-origin: center; }
-  .hero-viz .node:nth-child(odd) { animation-delay: .4s; }
-  .hero-viz .node:nth-child(3n) { animation-delay: .9s; }
-  .hero-viz .spark { animation: hero-spark 4.8s ease-in-out infinite; }
-  .hero-viz .spark:nth-child(2) { animation-delay: 1.2s; }
-  .hero-viz .spark:nth-child(3) { animation-delay: 2.4s; }
-  .hero-viz .spark:nth-child(4) { animation-delay: 0.6s; }
-  .hero-viz .signal {
-    stroke-dasharray: 18 220;
-    animation: hero-signal 4.5s ease-in-out infinite;
-  }
-  .hero-viz .signal-b {
-    stroke-dasharray: 12 180;
-    animation: hero-signal 5.8s ease-in-out infinite reverse;
-  }
-  .hero-viz .swarm { animation: hero-swarm 22s linear infinite; transform-origin: 500px 360px; }
-  .hero-orb {
-    position: absolute;
-    left: 50%;
-    top: 46%;
-    width: min(78vw, 560px);
-    height: min(78vw, 560px);
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 32% 28%, rgba(200, 216, 240, 0.5) 0%, transparent 40%),
-      radial-gradient(circle at 68% 62%, rgba(32, 104, 176, 0.12) 0%, transparent 55%),
-      radial-gradient(circle at 50% 50%, rgba(32, 56, 128, 0.06) 0%, transparent 70%);
-    filter: blur(4px);
-    animation: hero-orb 9s ease-in-out infinite;
-  }
   .hero-inner { position: relative; z-index: 1; width: 100%; }
   .hero h1 {
     width: fit-content;
@@ -698,46 +640,6 @@
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(6px); }
   }
-  @keyframes hero-orb {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-    50% { transform: translate(-50%, -52%) scale(1.05); opacity: 1; }
-  }
-  @keyframes hero-camo-a {
-    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-    50% { transform: translate(18px, -14px) rotate(4deg) scale(1.06); }
-  }
-  @keyframes hero-camo-b {
-    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-    50% { transform: translate(-22px, 12px) rotate(-5deg) scale(1.08); }
-  }
-  @keyframes hero-camo-c {
-    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
-    50% { transform: translate(10px, 16px) scale(1.1); opacity: 0.85; }
-  }
-  @keyframes hero-ripple {
-    0% { transform: scale(0.35); opacity: 0.45; }
-    70% { opacity: 0.12; }
-    100% { transform: scale(1.15); opacity: 0; }
-  }
-  @keyframes hero-dash {
-    to { stroke-dashoffset: -120; }
-  }
-  @keyframes hero-node {
-    0%, 100% { transform: scale(1); opacity: 0.45; }
-    50% { transform: scale(1.35); opacity: 0.9; }
-  }
-  @keyframes hero-spark {
-    0%, 100% { opacity: 0.15; transform: translateY(0); }
-    50% { opacity: 0.7; transform: translateY(-8px); }
-  }
-  @keyframes hero-signal {
-    0% { stroke-dashoffset: 0; opacity: 0.15; }
-    40% { opacity: 0.55; }
-    100% { stroke-dashoffset: -240; opacity: 0.15; }
-  }
-  @keyframes hero-swarm {
-    to { transform: rotate(360deg); }
-  }
   @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes needle {
     0%, 100% { transform: rotate(-28deg); }
@@ -778,17 +680,7 @@
     html { scroll-behavior: auto; scroll-snap-type: none; }
     .reveal,
     .benefits li { opacity: 1; transform: none; filter: none; transition: none; }
-    .hero h1, .hero-actions, .scroll-cue, .hero-orb { animation: none; }
-    .hero-viz .camo-a,
-    .hero-viz .camo-b,
-    .hero-viz .camo-c,
-    .hero-viz .ripple,
-    .hero-viz .link,
-    .hero-viz .node,
-    .hero-viz .spark,
-    .hero-viz .signal,
-    .hero-viz .signal-b,
-    .hero-viz .swarm { animation: none; }
+    .hero h1, .hero-actions, .scroll-cue { animation: none; }
     a.app-card:hover, .btn-primary:hover, .btn-appstore:hover { transform: none; }
     .viz .spin-slow,
     .viz .spin-med,
@@ -859,16 +751,6 @@
       font-size: 0.88rem;
     }
     .scroll-cue { display: none; }
-    .hero-orb {
-      width: min(96vw, 440px);
-      height: min(96vw, 440px);
-      top: 48%;
-      opacity: 0.7;
-    }
-    .hero-viz-stage { opacity: 0.78; }
-    .hero-viz .camo-a,
-    .hero-viz .camo-b,
-    .hero-viz .camo-c { opacity: 0.75; }
 
     .section-head { margin-bottom: 1.35rem; }
     .section-head h2 {
@@ -993,82 +875,6 @@
   </nav>
 
   <header class="hero" id="top">
-    <div class="hero-viz" aria-hidden="true">
-      <div class="hero-orb"></div>
-      <svg class="hero-viz-stage" viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <radialGradient id="heroGlow" cx="50%" cy="48%" r="48%">
-            <stop offset="0%" stop-color="#c8d8f0" stop-opacity=".38"/>
-            <stop offset="100%" stop-color="#203880" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="camoFillA" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#2068b0" stop-opacity=".16"/>
-            <stop offset="100%" stop-color="#203880" stop-opacity=".05"/>
-          </linearGradient>
-          <linearGradient id="camoFillB" x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#c8d8f0" stop-opacity=".42"/>
-            <stop offset="100%" stop-color="#2068b0" stop-opacity=".08"/>
-          </linearGradient>
-          <linearGradient id="camoFillC" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stop-color="#182c66" stop-opacity=".1"/>
-            <stop offset="100%" stop-color="#7eb6ff" stop-opacity=".18"/>
-          </linearGradient>
-          <linearGradient id="signalStroke" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#2068b0" stop-opacity="0"/>
-            <stop offset="50%" stop-color="#7eb6ff" stop-opacity=".8"/>
-            <stop offset="100%" stop-color="#203880" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-
-        <circle cx="500" cy="360" r="230" fill="url(#heroGlow)"/>
-
-        <ellipse class="camo-a" cx="250" cy="210" rx="140" ry="90" fill="url(#camoFillA)" transform="rotate(-18 250 210)"/>
-        <ellipse class="camo-b" cx="780" cy="200" rx="120" ry="78" fill="url(#camoFillB)" transform="rotate(22 780 200)"/>
-        <ellipse class="camo-c" cx="200" cy="520" rx="150" ry="95" fill="url(#camoFillC)" transform="rotate(12 200 520)"/>
-        <ellipse class="camo-a" cx="820" cy="500" rx="130" ry="88" fill="url(#camoFillA)" transform="rotate(-26 820 500)"/>
-        <ellipse class="camo-b" cx="520" cy="140" rx="95" ry="55" fill="url(#camoFillB)" opacity=".7"/>
-        <ellipse class="camo-c" cx="560" cy="580" rx="110" ry="60" fill="url(#camoFillC)" opacity=".65"/>
-
-        <g fill="none" stroke="#2068b0" stroke-width="1.1">
-          <circle class="ripple" cx="500" cy="360" r="210" stroke-opacity=".22"/>
-          <circle class="ripple" cx="500" cy="360" r="210" stroke-opacity=".18"/>
-          <circle class="ripple" cx="500" cy="360" r="210" stroke-opacity=".14"/>
-        </g>
-
-        <g fill="none" stroke="#203880" stroke-opacity=".14" stroke-width="1.15">
-          <path class="link" d="M220 250 C300 210, 360 280, 430 300"/>
-          <path class="link" d="M430 300 C480 250, 540 250, 580 300"/>
-          <path class="link" d="M580 300 C670 270, 720 320, 790 280"/>
-          <path class="link" d="M260 480 C340 430, 400 450, 470 420"/>
-          <path class="link" d="M470 420 C540 390, 610 430, 700 450"/>
-          <path class="link" d="M430 300 C450 360, 455 390, 470 420"/>
-          <path class="link" d="M580 300 C560 350, 540 390, 520 430"/>
-        </g>
-
-        <g fill="#2068b0">
-          <circle class="node" cx="220" cy="250" r="4.5" fill-opacity=".55"/>
-          <circle class="node" cx="430" cy="300" r="5.5" fill-opacity=".65"/>
-          <circle class="node" cx="580" cy="300" r="5" fill-opacity=".6"/>
-          <circle class="node" cx="790" cy="280" r="4" fill-opacity=".5"/>
-          <circle class="node" cx="260" cy="480" r="4" fill-opacity=".45"/>
-          <circle class="node" cx="470" cy="420" r="6" fill-opacity=".7"/>
-          <circle class="node" cx="700" cy="450" r="4.5" fill-opacity=".5"/>
-          <circle class="node" cx="520" cy="430" r="3.5" fill="#7eb6ff" fill-opacity=".65"/>
-        </g>
-
-        <path class="signal" d="M140 390 C260 330, 360 450, 500 360 C640 270, 740 420, 880 340" fill="none" stroke="url(#signalStroke)" stroke-width="1.6" stroke-linecap="round"/>
-        <path class="signal-b" d="M160 300 C300 360, 420 240, 500 320 C600 420, 720 280, 860 360" fill="none" stroke="url(#signalStroke)" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
-
-        <g class="swarm" fill="#2068b0">
-          <circle class="spark" cx="500" cy="170" r="2.5" fill-opacity=".35"/>
-          <circle class="spark" cx="670" cy="220" r="2" fill="#7eb6ff" fill-opacity=".4"/>
-          <circle class="spark" cx="330" cy="220" r="2.2" fill-opacity=".3"/>
-          <circle class="spark" cx="500" cy="550" r="2.4" fill-opacity=".28"/>
-          <circle class="spark" cx="300" cy="360" r="1.8" fill="#c8d8f0" fill-opacity=".45"/>
-          <circle class="spark" cx="700" cy="360" r="1.8" fill="#c8d8f0" fill-opacity=".4"/>
-        </g>
-      </svg>
-    </div>
     <div class="wrap hero-inner">
       <h1>Emerging technology for impact.</h1>
       <div class="hero-actions">
