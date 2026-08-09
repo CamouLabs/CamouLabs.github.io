@@ -110,11 +110,11 @@
   }
   .nav-links a:hover { color: var(--ink); }
   .nav-cta {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 500;
     color: var(--on-accent);
     background: var(--accent);
-    padding: 0.45rem 0.95rem;
+    padding: 0.35rem 0.75rem;
     border-radius: 980px;
     transition: background .2s ease;
   }
@@ -204,13 +204,14 @@
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
-    min-height: 44px;
-    padding: 0.65rem 1.2rem;
+    min-height: 36px;
+    padding: 0.4rem 0.9rem;
     border-radius: 980px;
-    font-size: 0.92rem;
+    font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: -0.01em;
-    transition: transform .2s ease, background .2s ease, color .2s ease;
+    border: 1px solid transparent;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
   }
   .btn-primary {
     background: var(--accent);
@@ -220,9 +221,16 @@
     background: var(--accent-soft);
     transform: scale(1.02);
   }
-  .btn-text { color: var(--accent); }
-  .btn-text:hover { color: var(--navy); }
-  .chev { font-size: 1.05em; }
+  .btn-secondary {
+    background: rgba(32, 104, 176, 0.08);
+    color: var(--navy);
+    border-color: rgba(32, 104, 176, 0.18);
+  }
+  .btn-secondary:hover {
+    background: rgba(32, 104, 176, 0.14);
+    border-color: rgba(32, 104, 176, 0.28);
+    transform: scale(1.02);
+  }
 
   /* Shared section */
   .section > .wrap,
@@ -711,7 +719,7 @@
     .reveal,
     .benefits li { opacity: 1; transform: none; filter: none; transition: none; }
     .hero h1, .hero-actions, .scroll-cue { animation: none; }
-    a.app-card:hover, .btn-primary:hover, .btn-appstore:hover { transform: none; }
+    a.app-card:hover, .btn-primary:hover, .btn-secondary:hover, .btn-appstore:hover { transform: none; }
     .viz .spin-slow,
     .viz .spin-med,
     .viz .needle,
@@ -746,8 +754,8 @@
     .brand { font-size: 0.95rem; }
     .brand img { width: 22px; height: 22px; }
     .nav-cta {
-      font-size: 0.74rem;
-      padding: 0.4rem 0.8rem;
+      font-size: 0.7rem;
+      padding: 0.32rem 0.7rem;
       white-space: nowrap;
     }
 
@@ -781,9 +789,9 @@
       gap: 0.55rem 0.85rem;
     }
     .hero-actions .btn {
-      min-height: 42px;
-      padding: 0.55rem 1.05rem;
-      font-size: 0.88rem;
+      min-height: 34px;
+      padding: 0.38rem 0.85rem;
+      font-size: 0.78rem;
     }
     .scroll-cue { display: none; }
 
@@ -909,7 +917,7 @@
       <h1>Emerging technology for impact.</h1>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#apps">See our work</a>
-        <a class="btn btn-text" href="#mission">Our approach <span class="chev" aria-hidden="true">›</span></a>
+        <a class="btn btn-secondary" href="#mission">Approach</a>
       </div>
     </div>
     <a class="scroll-cue" href="#mission" aria-label="Scroll to approach">
