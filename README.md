@@ -6,6 +6,8 @@ Public website for [Camou Labs](https://github.com/CamouLabs).
 
 **Live site:** https://camoulabs.github.io
 
+**Blog:** https://camoulabs.github.io/blog/
+
 ## Apps
 
 | App | App Store |
